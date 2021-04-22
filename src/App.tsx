@@ -1,18 +1,24 @@
-import { useEffect } from 'react';
-import { useAppSelector, useAppDispatch } from 'src/hooks/redux-toolkit';
-import { add, remove } from 'src/context/user-toolkit/userReducer';
-
+import { lazy, Suspense } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './app.scss';
 
+const Login = lazy(() => import('src/routes/login/Login'));
+const Register = lazy(() => import('src/routes/register/Register'));
+
 function App() {
-  const state = useAppSelector((state) => state.user);
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(add({ name: 'hasan', id: 'dahfjd;sjfkds' }));
-  }, []);
-
-  return <div className="app-container">{state.user.id}</div>;
+  return (
+    <BrowserRouter basename="fastagram">
+      <Suspense fallback={<div>Loading...</div>}>
+        <div className="app-container">
+          Hello
+          <Switch>
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/register" component={Register} />
+          </Switch>
+        </div>
+      </Suspense>
+    </BrowserRouter>
+  );
 }
 
 export default App;
