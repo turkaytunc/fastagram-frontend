@@ -15,5 +15,8 @@
   "editor.suggestSelection": "recentlyUsedByPrefix",
   "editor.acceptSuggestionOnEnter": "off",
   "editor.wordBasedSuggestions": false,
-  "editor.acceptSuggestionOnCommitCharacter": false
+  "editor.acceptSuggestionOnCommitCharacter": false,
+
+  "css.validate": false,
+  "scss.validate": false
 }
