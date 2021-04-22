@@ -1,1 +1,1 @@
-# Fullstack Instagram Clone
+# Fastagram Frontend
