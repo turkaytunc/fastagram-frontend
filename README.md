@@ -1,3 +1,1 @@
-# Fastagram
-
-Fullstack instagram clone
+# Fullstack Instagram Clone
