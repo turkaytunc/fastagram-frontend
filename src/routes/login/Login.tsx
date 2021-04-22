@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import './login.scss';
 import { loginValidator } from 'src/helpers/joiValidators';
 import instagramLogo from 'src/images/instagram-login.png';
+import { InputBox } from 'src/components';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [inputError, setInputError] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(true);
 
   useEffect(() => {
     document.title = 'Login • Instagram';
@@ -27,60 +28,45 @@ const Login = () => {
     <section className="login-container">
       <img className="w-40" src={instagramLogo} alt="instagram" />
       <form onSubmit={(e) => handleLogin(e)}>
-        <label className="relative w-72 border-1-grey" htmlFor="username">
-          <span
-            className={`absolute left-4 text-sm text-gray-400 ${
-              username ? 'trans-effect' : ' top-3 trans-effect-none'
-            }`}
-          >
-            username
-          </span>
-          <input
-            className="login-input"
-            type="text"
-            id="username"
-            onChange={(event) => setUsername(event.target.value)}
-            onFocus={() => {
-              setInputError('');
-            }}
-            value={username}
+        <InputBox
+          item={username}
+          setItem={setUsername}
+          setError={setInputError}
+          isPassword={false}
+          placeholder="username"
+        />
+
+        <div className="flex w-72 mt-2 rounded-sm">
+          <InputBox
+            item={password}
+            setItem={setPassword}
+            setError={setInputError}
+            isPassword={showPassword}
+            placeholder="password"
           />
-        </label>
-        <div className="flex w-72 border-1-grey mt-2 rounded-sm">
-          <label className="relative w-60 " htmlFor="password">
-            <span
-              className={`absolute left-4 text-sm text-gray-400 ${
-                password ? 'trans-effect' : ' top-3 trans-effect-none'
-              }`}
-            >
-              password
-            </span>
-            <input
-              className="login-input"
-              type={showPassword ? 'text' : 'password'}
-              id="password"
-              onChange={(event) => setPassword(event.target.value)}
-              onFocus={() => {
-                setInputError('');
-              }}
-              value={password}
-            />
-          </label>
-          <div className="w-12">
+          <div className="w-12 border border-l-0 rounded-sm">
             <button
               className="w-full h-10 text-sm font-medium"
               type="button"
               onClick={() => setShowPassword((prev) => !prev)}
             >
-              {showPassword ? 'Hide' : 'Show'}
+              {showPassword ? 'Show' : 'Hide'}
             </button>
           </div>
         </div>
-        <button className="login-button w-72 mt-5 h-8 rounded-md text-white" type="submit">
+        <div className="w-72 text-right mt-3 font-light">
+          <a className="text-sm " href="/login">
+            Forgot password?
+          </a>
+        </div>
+        <button className="login-button w-72 mt-5 h-8 rounded-sm text-white" type="submit">
           Login
         </button>
       </form>
-      {inputError}
+      <div className="text-sm text-gray-400 mt-5">
+        Don't have an account? <a href="/signup">Sign up</a>
+      </div>
+      {inputError && <div className="mt-5 text-gray-600">{inputError}</div>}
     </section>
   );
 };

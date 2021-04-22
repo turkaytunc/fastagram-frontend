@@ -22,7 +22,8 @@
     "react/react-in-jsx-scope": "off",
     "import/no-extraneous-dependencies": ["off"],
     "no-undef": "off",
-    "no-shadow": "off"
+    "no-shadow": "off",
+    "react/no-unescaped-entities": "off"
   },
   "ignorePatterns": [
     ".eslintrc.js",
