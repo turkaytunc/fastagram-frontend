@@ -1,5 +1,6 @@
+@use '/src/scss';
+
 .login-container {
-  color: red;
   @apply max-w-sm mx-auto flex flex-col items-center my-20;
 
   form {
@@ -7,7 +8,26 @@
   }
 }
 
+.login-button {
+  background-color: scss.$button-background-blue;
+}
+
 .login-input {
-  border: 1px solid #ccc;
   @apply w-full h-10 pl-2 pt-2;
+}
+
+.trans-effect {
+  transition: all 200ms linear;
+  transform-origin: 0% 0%;
+  transform: scale(0.75) translateY(-0.1em);
+}
+
+.trans-effect-none {
+  transition: all 200ms linear;
+  transform-origin: 0% 0%;
+  transform: scale(1) translateY(0rem);
+}
+
+.border-1-grey {
+  border: 1px solid #ccc;
 }
