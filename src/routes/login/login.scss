@@ -1,3 +1,13 @@
 .login-container {
   color: red;
+  @apply max-w-sm mx-auto flex flex-col items-center my-20;
+
+  form {
+    @apply flex flex-col items-center justify-items-center w-full mt-6;
+  }
+}
+
+.login-input {
+  border: 1px solid #ccc;
+  @apply w-full h-10 pl-2 pt-2;
 }
