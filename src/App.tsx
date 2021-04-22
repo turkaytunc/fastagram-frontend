@@ -1,12 +1,17 @@
-import { useContext, useEffect } from 'react';
-import { Store } from './context';
+import { useEffect } from 'react';
+import { useAppSelector, useAppDispatch } from 'src/hooks/redux-toolkit';
+import { add, remove } from 'src/context/user-toolkit/userReducer';
+
 import './app.scss';
 
 function App() {
-  const { state, dispatch } = useContext(Store);
+  const state = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
+
   useEffect(() => {
-    dispatch({ type: 'ADD_USER', payload: { id: 'fdskjfs', name: 'hay' } });
+    dispatch(add({ name: 'hasan', id: 'dahfjd;sjfkds' }));
   }, []);
+
   return <div className="app-container">{state.user.id}</div>;
 }
 
