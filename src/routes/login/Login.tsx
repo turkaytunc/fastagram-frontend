@@ -46,7 +46,7 @@ const Login = () => {
             value={username}
           />
         </label>
-        <div className="flex w-72 border-1-grey mt-2">
+        <div className="flex w-72 border-1-grey mt-2 rounded-sm">
           <label className="relative w-60 " htmlFor="password">
             <span
               className={`absolute left-4 text-sm text-gray-400 ${
@@ -68,7 +68,7 @@ const Login = () => {
           </label>
           <div className="w-12">
             <button
-              className="w-full h-10"
+              className="w-full h-10 text-sm font-medium"
               type="button"
               onClick={() => setShowPassword((prev) => !prev)}
             >
