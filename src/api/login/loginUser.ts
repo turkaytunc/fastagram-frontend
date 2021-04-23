@@ -1,1 +1,1 @@
-export const loginUser = () => {};
+export const loginUser = async () => {};
