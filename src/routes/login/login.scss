@@ -1,7 +1,7 @@
 @use '/src/scss';
 
 .login-container {
-  @apply max-w-sm mx-auto flex flex-col items-center my-20;
+  @apply max-w-sm  flex flex-col items-center my-20;
 
   form {
     @apply flex flex-col items-center justify-items-center w-full mt-6;
