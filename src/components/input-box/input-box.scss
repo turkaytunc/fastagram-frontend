@@ -13,11 +13,11 @@
 .trans-effect {
   transition: all 100ms ease-out;
   transform-origin: 0% -50%;
-  transform: scale(0.8) translateY(-0.05em);
+  transform: scale(0.8);
 }
 
 .trans-effect-none {
   transition: all 100ms linear;
   transform-origin: 0% -50%;
-  transform: scale(1) translateY(0rem);
+  transform: scale(1);
 }

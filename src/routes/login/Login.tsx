@@ -27,7 +27,7 @@ const Login = () => {
   };
 
   return (
-    <section className="login-container border border-gray-300 py-10">
+    <section className="login-container md:border md:border-gray-300 py-10">
       <img className="w-48" src={instagramLogo} alt="instagram" />
       <div className="my-7">
         <button type="button" className="form-button flex justify-center items-center">
@@ -78,7 +78,7 @@ const Login = () => {
           }}
           className="form-button"
           type="submit"
-          disabled={username === ''}
+          disabled={username.length < 5 || password.length < 5}
         >
           Log in
         </button>

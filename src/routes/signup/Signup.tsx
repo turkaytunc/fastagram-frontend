@@ -29,7 +29,7 @@ const Signup = () => {
   };
 
   return (
-    <section className="signup-container">
+    <section className="signup-container md:border md:border-gray-300 py-10">
       <img className="w-48" src={instagramLogo} alt="instagram" />
       <section className="w-68 mt-5 text-gray-400">
         Sign up to see photos and videos from your friends.
@@ -84,7 +84,18 @@ const Signup = () => {
             </button>
           </div>
         </div>
-        <button className="signup-form-button" type="submit">
+        <button
+          style={{
+            backgroundColor: `${
+              username.length > 5 && password.length > 5 && email.length > 5
+                ? '#0095f6'
+                : 'rgba(0,149,246,.3)'
+            }`,
+          }}
+          className="signup-form-button"
+          type="submit"
+          disabled={username.length < 5 || password.length < 5 || email.length < 5}
+        >
           Sign up
         </button>
       </form>
