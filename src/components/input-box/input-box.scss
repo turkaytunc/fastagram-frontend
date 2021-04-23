@@ -1,6 +1,13 @@
+@use '/src/scss';
+
 .input-box {
   @apply w-full h-10 pl-2 pt-2 text-xs;
   border-radius: 3px;
+
+  &:focus {
+    background-color: scss.$input-focus-bg;
+    outline: 1px solid #bbb;
+  }
 }
 
 .trans-effect {
