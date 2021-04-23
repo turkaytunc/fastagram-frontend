@@ -1,20 +1,24 @@
 import Joi from 'joi';
 
-const registerSchema = Joi.object({
-  username: Joi.string().alphanum().min(3).max(30).required(),
+const signupSchema = Joi.object({
+  username: Joi.string().alphanum().min(5).max(30).required(),
 
-  password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')).message('invalid password'),
+  password: Joi.string()
+    .pattern(new RegExp('^[a-zA-Z0-9]{8,30}$'))
+    .message('invalid password length or type'),
 
-  repeatPassword: Joi.ref('password'),
+  email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
 });
 
 const loginSchema = Joi.object({
-  username: Joi.string().alphanum().min(3).max(30).required(),
+  username: Joi.string().alphanum().min(5).max(30).required(),
 
-  password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')),
+  password: Joi.string()
+    .pattern(new RegExp('^[a-zA-Z0-9]{8,30}$'))
+    .message('invalid password length or type'),
 });
 
-export const registerValidator = (username: string, password: string, repeatPassword: string) =>
-  registerSchema.validateAsync({ username, password, repeatPassword });
+export const signupValidator = (username: string, password: string, email: string) =>
+  signupSchema.validateAsync({ username, password, email });
 export const loginValidator = (username: string, password: string) =>
-  registerSchema.validateAsync({ username, password });
+  loginSchema.validateAsync({ username, password });
