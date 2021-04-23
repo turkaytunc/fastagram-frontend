@@ -89,6 +89,10 @@ const Signup = () => {
         </button>
       </form>
       {inputError && <div className="mt-5 w-68 text-red-500 text-sm">{inputError}</div>}
+      <section className="text-sm w-68 text-gray-400 mt-5">
+        By signing up, you agree to our <span className="font-medium">Terms , Data Policy</span> and{' '}
+        <span className="font-medium">Cookies Policy</span> .
+      </section>
       <div className="text-sm w-68 text-gray-400 mt-5">
         Have an account? <a href="/login">Log in</a>
       </div>
