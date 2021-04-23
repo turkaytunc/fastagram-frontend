@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-boolean-value */
 import React, { useContext, useEffect, useState } from 'react';
 import './login.scss';
 import { FaFacebookSquare } from 'react-icons/fa';
@@ -69,7 +70,16 @@ const Login = () => {
             Forgot password?
           </a>
         </div>
-        <button className="form-button" type="submit">
+        <button
+          style={{
+            backgroundColor: `${
+              username.length > 5 && password.length > 5 ? '#0095f6' : 'rgba(0,149,246,.3)'
+            }`,
+          }}
+          className="form-button"
+          type="submit"
+          disabled={username === ''}
+        >
           Log in
         </button>
       </form>
