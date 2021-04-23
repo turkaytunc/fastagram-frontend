@@ -5,7 +5,7 @@ const signupSchema = Joi.object({
 
   password: Joi.string()
     .pattern(new RegExp('^[a-zA-Z0-9]{8,30}$'))
-    .message('invalid password length or type'),
+    .message('password can only contain alphanumeric characters and minimum of 6 character '),
 
   email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
 });
@@ -15,7 +15,7 @@ const loginSchema = Joi.object({
 
   password: Joi.string()
     .pattern(new RegExp('^[a-zA-Z0-9]{8,30}$'))
-    .message('invalid password length or type'),
+    .message('password can only contain alphanumeric characters and minimum of 6 character '),
 });
 
 export const signupValidator = (username: string, password: string, email: string) =>

@@ -73,7 +73,7 @@ const Login = () => {
           Log in
         </button>
       </form>
-      {inputError && <div className="mt-5 text-red-500 text-sm">{inputError}</div>}
+      {inputError && <div className="mt-5 w-68 text-red-500 text-sm">{inputError}</div>}
       <div className="text-sm w-68 text-gray-400 mt-5">
         Don't have an account? <a href="/signup">Sign up</a>
       </div>
