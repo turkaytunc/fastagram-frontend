@@ -1,0 +1,23 @@
+@use '/src/scss';
+
+.input-box {
+  @apply w-full h-10 pl-2 pt-2 text-xs;
+  border-radius: 3px;
+
+  &:focus {
+    background-color: scss.$input-focus-bg;
+    outline: 1px solid #bbb;
+  }
+}
+
+.trans-effect {
+  transition: all 200ms linear;
+  transform-origin: 0% 0%;
+  transform: scale(0.75) translateY(-0.1em);
+}
+
+.trans-effect-none {
+  transition: all 200ms linear;
+  transform-origin: 0% 0%;
+  transform: scale(1) translateY(0rem);
+}

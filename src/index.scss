@@ -3,13 +3,14 @@
 *::before,
 *::after {
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
   vertical-align: baseline;
 }
 
 body {
   margin: 0;
-  background-color: #fafafa;
+  @apply bg-gray-50;
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
