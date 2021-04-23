@@ -1,0 +1,17 @@
+@use '/src/scss';
+
+.signup-container {
+  @apply max-w-sm mx-auto flex flex-col items-center my-16;
+
+  form {
+    @apply flex flex-col items-center justify-items-center w-full mt-6;
+  }
+  a {
+    color: scss.$button-background-blue;
+  }
+}
+
+.signup-form-button {
+  background-color: scss.$button-background-blue;
+  @apply w-68 mt-7 h-8 rounded-md text-white text-sm font-medium;
+}

@@ -43,7 +43,7 @@ const Login = () => {
           setItem={setUsername}
           setError={setInputError}
           isPassword={false}
-          placeholder="username"
+          placeholder="Username"
         />
 
         <div className="flex w-68 mt-2 rounded-sm">
@@ -52,9 +52,9 @@ const Login = () => {
             setItem={setPassword}
             setError={setInputError}
             isPassword={showPassword}
-            placeholder="password"
+            placeholder="Password"
           />
-          <div className="w-12 border border-l-0 rounded-sm">
+          <div className="w-12 border mt-2 border-l-0 rounded-sm">
             <button
               className="w-full h-10 text-sm font-medium"
               type="button"
@@ -70,7 +70,7 @@ const Login = () => {
           </a>
         </div>
         <button className="form-button" type="submit">
-          Login
+          Log in
         </button>
       </form>
       {inputError && <div className="mt-5 text-red-500 text-sm">{inputError}</div>}
