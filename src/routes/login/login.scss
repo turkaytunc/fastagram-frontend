@@ -11,6 +11,7 @@
   }
 }
 
-.login-button {
+.form-button {
   background-color: scss.$button-background-blue;
+  @apply w-68 mt-5 h-8 rounded-md text-white text-sm font-medium;
 }

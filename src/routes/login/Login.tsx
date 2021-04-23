@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './login.scss';
+import { FaFacebookSquare } from 'react-icons/fa';
 import { loginValidator } from 'src/helpers/joiValidators';
 import instagramLogo from 'src/images/instagram-login.png';
 import { InputBox } from 'src/components';
@@ -26,7 +27,16 @@ const Login = () => {
 
   return (
     <section className="login-container">
-      <img className="w-40" src={instagramLogo} alt="instagram" />
+      <img className="w-48" src={instagramLogo} alt="instagram" />
+      <div className="my-7">
+        <button type="button" className="form-button flex justify-center items-center">
+          <FaFacebookSquare className="mr-2" />
+          Continue with Facebook
+        </button>
+      </div>
+      <div className="relative border-t border-gray-300 w-68">
+        <span className="absolute -top-2 bg-gray-50 text-gray-400 w-14 left-28 text-sm">OR</span>
+      </div>
       <form onSubmit={(e) => handleLogin(e)}>
         <InputBox
           item={username}
@@ -36,7 +46,7 @@ const Login = () => {
           placeholder="username"
         />
 
-        <div className="flex w-72 mt-2 rounded-sm">
+        <div className="flex w-68 mt-2 rounded-sm">
           <InputBox
             item={password}
             setItem={setPassword}
@@ -54,16 +64,16 @@ const Login = () => {
             </button>
           </div>
         </div>
-        <div className="w-72 text-right mt-3 font-light">
+        <div className="w-68 text-right mt-3 font-light">
           <a className="text-sm " href="/login">
             Forgot password?
           </a>
         </div>
-        <button className="login-button w-72 mt-5 h-8 rounded-sm text-white" type="submit">
+        <button className="form-button" type="submit">
           Login
         </button>
       </form>
-      <div className="text-sm text-gray-400 mt-5">
+      <div className="text-sm w-68 text-gray-400 mt-5">
         Don't have an account? <a href="/signup">Sign up</a>
       </div>
       {inputError && <div className="mt-5 text-gray-600">{inputError}</div>}
