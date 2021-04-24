@@ -8,11 +8,11 @@ const Dashboard = () => {
   return (
     <div>
       <div className="w-6">
-        <FileUpload multiple={false} onDone={setFiles} iconSize="30" fill="#333" />
+        <FileUpload multiple onDone={setFiles} iconSize="30" fill="#333" />
       </div>
-      <div className="text-center">
+      <div className="flex justify-center">
         {files?.map((file: any) => {
-          return <img key={Math.random()} src={file.base64} alt="deneme" />;
+          return <img key={Math.random()} width="300px" src={file.base64} alt="deneme" />;
         })}
       </div>
     </div>
