@@ -2,17 +2,15 @@ import { lazy, Suspense } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './app.scss';
 import UserContext from 'src/context/UserContext';
-import useAuth from 'src/hooks/useAuth';
 import Dashboard from './routes/dashboard/Dashboard';
 
 const Login = lazy(() => import('src/routes/login/Login'));
 const Signup = lazy(() => import('src/routes/signup/Signup'));
 
 function App() {
-  const { user } = useAuth();
   return (
     <BrowserRouter basename="/fastagram">
-      <UserContext.Provider value={user}>
+      <UserContext>
         <Suspense fallback={<div className="text-center">Loading...</div>}>
           <div className="app-container">
             <Switch>
@@ -24,7 +22,7 @@ function App() {
             </Switch>
           </div>
         </Suspense>
-      </UserContext.Provider>
+      </UserContext>
     </BrowserRouter>
   );
 }
