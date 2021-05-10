@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './signup.scss';
 import { FaFacebookSquare } from 'react-icons/fa';
 import { signupValidator } from 'src/helpers/joiValidators';
 import instagramLogo from 'src/images/instagram-login.png';
 import { FakePhoneScreen, InputBox } from 'src/components';
+import { signupUser } from 'src/api';
+import { UserContext } from 'src/context/UserContext';
+import useAuth from 'src/hooks/useAuth';
 
 const Signup = () => {
   const [username, setUsername] = useState('');
@@ -13,9 +16,10 @@ const Signup = () => {
   const [inputError, setInputError] = useState('');
   const [showPassword, setShowPassword] = useState(true);
 
+  const user = useContext(UserContext);
+
   useEffect(() => {
     document.title = 'Signup • Instagram';
-    Boolean(username && password && email);
   }, []);
 
   const handleSignup = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -23,6 +27,15 @@ const Signup = () => {
 
     try {
       await signupValidator(username, password, email);
+      const response = await signupUser(username, email, password);
+      const data = await response.json();
+
+      if (data.message) {
+        setInputError(data.message);
+        return;
+      }
+
+      user?.setUser(data);
     } catch (error) {
       setInputError(error.message);
     }

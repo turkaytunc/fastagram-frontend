@@ -1,16 +1,22 @@
-/* eslint-disable react/jsx-boolean-value */
 import React, { useContext, useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import './login.scss';
 import { FaFacebookSquare } from 'react-icons/fa';
 import { loginValidator } from 'src/helpers/joiValidators';
 import instagramLogo from 'src/images/instagram-login.png';
 import { FakePhoneScreen, InputBox } from 'src/components';
+import { loginUser } from 'src/api';
+import { UserContext } from 'src/context/UserContext';
+import useAuth from 'src/hooks/useAuth';
 
 const Login = () => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [inputError, setInputError] = useState('');
   const [showPassword, setShowPassword] = useState(true);
+  const user = useContext(UserContext);
+  const history = useHistory();
+  const [err] = useAuth();
 
   useEffect(() => {
     document.title = 'Login • Instagram';
@@ -20,7 +26,17 @@ const Login = () => {
     event.preventDefault();
 
     try {
-      await loginValidator(username, password);
+      await loginValidator(email, password);
+      const response = await loginUser(email, password);
+
+      const data = await response.json();
+
+      if (data.message) {
+        setInputError(data.message);
+        return;
+      }
+      user?.setUser(data);
+      history.push('/');
     } catch (error) {
       setInputError(error.message);
     }
@@ -44,11 +60,11 @@ const Login = () => {
         </div>
         <form onSubmit={(e) => handleLogin(e)}>
           <InputBox
-            item={username}
-            setItem={setUsername}
+            item={email}
+            setItem={setEmail}
             setError={setInputError}
             isPassword={false}
-            placeholder="Username"
+            placeholder="Email"
           />
 
           <div className="flex w-68 mt-2 rounded-sm">
@@ -77,12 +93,12 @@ const Login = () => {
           <button
             style={{
               backgroundColor: `${
-                username.length > 5 && password.length > 5 ? '#0095f6' : 'rgba(0,149,246,.3)'
+                email.length > 5 && password.length > 5 ? '#0095f6' : 'rgba(0,149,246,.3)'
               }`,
             }}
             className="form-button"
             type="submit"
-            disabled={username.length < 5 || password.length < 5}
+            disabled={email.length < 5 || password.length < 5}
           >
             Log in
           </button>
@@ -92,6 +108,7 @@ const Login = () => {
           Don't have an account? <a href="/signup">Sign up</a>
         </div>
       </section>
+      <div>{user?.user?.email}</div>
     </section>
   );
 };

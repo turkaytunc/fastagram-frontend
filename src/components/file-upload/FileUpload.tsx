@@ -30,7 +30,7 @@ const FileUpload = ({
           const fileInfo = {
             name: file.name,
             type: file.type,
-            size: `${Math.round(file.size / 1000)}kB`,
+            size: `${Math.round(file.size / 1024)}KB`,
             base64: reader.result,
             file,
           };
@@ -46,11 +46,12 @@ const FileUpload = ({
     }
   };
   return (
-    <label htmlFor="fileInput">
+    <label htmlFor="fileInput" className="flex w-auto h-auto items-center justify-center">
       <input
         className="file-input"
         id="fileInput"
         type="file"
+        accept="image/png, image/jpeg"
         multiple={multiple}
         onChange={(e) => handleChange(e)}
       />
