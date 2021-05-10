@@ -1,9 +1,11 @@
 /* eslint-disable dot-notation */
 import React, { useEffect, useState } from 'react';
 import FileUpload from 'src/components/file-upload/FileUpload';
+import useAuth from 'src/hooks/useAuth';
 
 const Dashboard = () => {
   const [files, setFiles] = useState([]);
+  const [err] = useAuth();
 
   return (
     <div>

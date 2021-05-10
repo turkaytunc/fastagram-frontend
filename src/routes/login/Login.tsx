@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import './login.scss';
 import { FaFacebookSquare } from 'react-icons/fa';
 import { loginValidator } from 'src/helpers/joiValidators';
@@ -6,6 +7,7 @@ import instagramLogo from 'src/images/instagram-login.png';
 import { FakePhoneScreen, InputBox } from 'src/components';
 import { loginUser } from 'src/api';
 import { UserContext } from 'src/context/UserContext';
+import useAuth from 'src/hooks/useAuth';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -13,6 +15,8 @@ const Login = () => {
   const [inputError, setInputError] = useState('');
   const [showPassword, setShowPassword] = useState(true);
   const user = useContext(UserContext);
+  const history = useHistory();
+  const [err] = useAuth();
 
   useEffect(() => {
     document.title = 'Login • Instagram';
@@ -32,6 +36,7 @@ const Login = () => {
         return;
       }
       user?.setUser(data);
+      history.push('/');
     } catch (error) {
       setInputError(error.message);
     }
@@ -103,7 +108,7 @@ const Login = () => {
           Don't have an account? <a href="/signup">Sign up</a>
         </div>
       </section>
-      <div>{user?.user.email}</div>
+      <div>{user?.user?.email}</div>
     </section>
   );
 };
