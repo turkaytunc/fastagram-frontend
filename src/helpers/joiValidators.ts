@@ -11,8 +11,7 @@ const signupSchema = Joi.object({
 });
 
 const loginSchema = Joi.object({
-  username: Joi.string().alphanum().min(5).max(30).required(),
-
+  email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
   password: Joi.string()
     .pattern(new RegExp('^[a-zA-Z0-9]{5,30}$'))
     .message('password can only contain alphanumeric characters and minimum of 6 character '),
@@ -20,5 +19,5 @@ const loginSchema = Joi.object({
 
 export const signupValidator = (username: string, password: string, email: string) =>
   signupSchema.validateAsync({ username, password, email });
-export const loginValidator = (username: string, password: string) =>
-  loginSchema.validateAsync({ username, password });
+export const loginValidator = (email: string, password: string) =>
+  loginSchema.validateAsync({ email, password });
