@@ -9,7 +9,7 @@ const Signup = lazy(() => import('src/routes/signup/Signup'));
 
 function App() {
   return (
-    <BrowserRouter basename="/fastagram">
+    <BrowserRouter>
       <UserContext>
         <Suspense fallback={<div className="text-center">Loading...</div>}>
           <div className="app-container">
