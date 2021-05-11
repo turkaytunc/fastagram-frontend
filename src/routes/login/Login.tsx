@@ -16,7 +16,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(true);
   const user = useContext(UserContext);
   const history = useHistory();
-  const [err] = useAuth();
+  useAuth();
 
   useEffect(() => {
     document.title = 'Login • Instagram';

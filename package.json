@@ -27,7 +27,7 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "**/src/**",
+      "**/src/**/*.(ts|tsx)",
       "!**/interfaces/**",
       "!**/index.ts",
       "!**/react-app-env.d.ts",

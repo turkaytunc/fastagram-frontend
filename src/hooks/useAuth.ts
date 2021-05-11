@@ -30,6 +30,4 @@ export default function useAuth() {
     };
     fetchUser();
   }, []);
-
-  return [err];
 }

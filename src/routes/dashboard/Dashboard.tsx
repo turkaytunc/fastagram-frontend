@@ -6,7 +6,7 @@ import useAuth from 'src/hooks/useAuth';
 
 const Dashboard = () => {
   const [files, setFiles] = useState([]);
-  const [err] = useAuth();
+  useAuth();
 
   useEffect(() => {
     document.title = 'Instagram';
