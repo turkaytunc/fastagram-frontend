@@ -1,0 +1,22 @@
+.navbar-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  li:not(:first-child) {
+    padding-left: 0.75rem;
+  }
+}
