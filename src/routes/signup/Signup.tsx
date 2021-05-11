@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './signup.scss';
+import instagramLogo from 'src/images/instagram-login.png';
+import { useHistory } from 'react-router-dom';
 import { FaFacebookSquare } from 'react-icons/fa';
 import { signupValidator } from 'src/helpers/joiValidators';
-import instagramLogo from 'src/images/instagram-login.png';
 import { FakePhoneScreen, InputBox } from 'src/components';
 import { signupUser } from 'src/api';
 import { UserContext } from 'src/context/UserContext';
-import useAuth from 'src/hooks/useAuth';
 
 const Signup = () => {
   const [username, setUsername] = useState('');
@@ -17,6 +17,7 @@ const Signup = () => {
   const [showPassword, setShowPassword] = useState(true);
 
   const user = useContext(UserContext);
+  const history = useHistory();
 
   useEffect(() => {
     document.title = 'Signup • Instagram';
@@ -36,6 +37,7 @@ const Signup = () => {
       }
 
       user?.setUser(data);
+      history.push('/');
     } catch (error) {
       setInputError(error.message);
     }
