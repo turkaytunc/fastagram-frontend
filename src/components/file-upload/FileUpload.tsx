@@ -51,7 +51,8 @@ const FileUpload = ({
         className="file-input"
         id="fileInput"
         type="file"
-        accept="image/png, image/jpeg"
+        accept="image/jpeg, image/svg+xml"
+        size={2000}
         multiple={multiple}
         onChange={(e) => handleChange(e)}
       />

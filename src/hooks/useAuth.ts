@@ -4,7 +4,7 @@ import { UserContext } from 'src/context/UserContext';
 import { User } from 'src/interfaces';
 import { useHistory } from 'react-router-dom';
 
-export default function useAuth() {
+export default function useAuth(path: string) {
   const userContext = useContext(UserContext);
   const history = useHistory();
   const [err, setErr] = useState('');
@@ -16,8 +16,9 @@ export default function useAuth() {
         const data = await response.json();
 
         if (!data.message) {
-          userContext?.setUser(data);
-          history.push('/');
+          userContext?.setUser(data.user);
+          localStorage.setItem('user', JSON.stringify(data.user));
+          history.push(`${path}`);
           return;
         }
         userContext?.setUser(null);
@@ -30,6 +31,4 @@ export default function useAuth() {
     };
     fetchUser();
   }, []);
-
-  return [err];
 }

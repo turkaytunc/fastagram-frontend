@@ -1,29 +1,30 @@
 import { lazy, Suspense } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import './app.scss';
-import UserContext from 'src/context/UserContext';
-import Dashboard from './routes/dashboard/Dashboard';
+import Profile from 'src/routes/profile/Profile';
+import { UserContextProvider } from './context/UserContext';
 
 const Login = lazy(() => import('src/routes/login/Login'));
 const Signup = lazy(() => import('src/routes/signup/Signup'));
+const Dashboard = lazy(() => import('src/routes/dashboard/Dashboard'));
 
 function App() {
   return (
-    <BrowserRouter basename="/fastagram">
-      <UserContext>
-        <Suspense fallback={<div className="text-center">Loading...</div>}>
-          <div className="app-container">
-            <Switch>
-              <Route exact path="/" component={Dashboard} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/signup" component={Signup} />
-              <Route exact path="/profile/:id" component={() => <div>profile</div>} />
-              <Route path="*" component={() => <div>404</div>} />
-            </Switch>
-          </div>
-        </Suspense>
-      </UserContext>
-    </BrowserRouter>
+    <UserContextProvider>
+      <Suspense fallback={<div className="text-center">Loading...</div>}>
+        <div className="app-container">
+          <Switch>
+            <Route exact path="/" component={Dashboard} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={Signup} />
+            <Route exact path="/profile/:userId" component={Profile} />
+            <Route path="*" component={() => <div>404</div>} />
+          </Switch>
+        </div>
+      </Suspense>
+
+      <div id="upload-modal" />
+    </UserContextProvider>
   );
 }
 
