@@ -19,9 +19,16 @@ const UploadModal = ({ setIsOpen, isOpen }: { setIsOpen: any; isOpen: boolean })
       <div className="w-6 top-2 absolute left-5">
         <FileUpload multiple onDone={setFiles} iconSize="30" fill="#333" />
       </div>
-      <div className="flex justify-center absolute top-32 w-full">
+      <div className="flex justify-center absolute top-32 file-preview">
         {files?.map((file: any) => {
-          return <img key={Math.random()} className="w-90" src={file.base64} alt="uploaded file" />;
+          return (
+            <img
+              key={Math.random()}
+              className="w-full h-full"
+              src={file.base64}
+              alt="uploaded file"
+            />
+          );
         })}
       </div>
     </div>,

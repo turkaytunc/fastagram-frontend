@@ -13,4 +13,12 @@
     width: 50%;
     left: 25%;
   }
+  .file-preview {
+    width: 90%;
+    left: 5%;
+    height: calc(100% - 10rem);
+    img {
+      max-height: 80%;
+    }
+  }
 }
