@@ -17,7 +17,8 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  *:not(:first-child) {
-    margin-left: 0.75rem;
-  }
+}
+
+.menu-item:not(:first-child) {
+  margin-left: 0.75rem;
 }

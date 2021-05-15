@@ -22,24 +22,24 @@ const Navbar = () => {
         </Link>
       </section>
       <ul className="navbar-links w-96 md:ml-48 relative">
-        <li>
+        <li className="menu-item">
           <Link to="/">
             <FaHome size="22" fill="#252525" />
           </Link>
         </li>
-        <li>
+        <li className="menu-item">
           <FaRegPlusSquare size="22" fill="#252525" />
         </li>
-        <li>
+        <li className="menu-item">
           <FaRegPaperPlane size="22" fill="#252525" />
         </li>
-        <li>
+        <li className="menu-item">
           <FaRegCompass size="22" fill="#252525" />
         </li>
-        <li>
+        <li className="menu-item">
           <FaRegHeart size="22" fill="#252525" />
         </li>
-        <button type="button" onClick={() => setShowCogMenu((prev) => !prev)}>
+        <button className="menu-item" type="button" onClick={() => setShowCogMenu((prev) => !prev)}>
           <FaCog size="22" fill="#252525" />
         </button>
         {showCogMenu && <CogMenu />}
