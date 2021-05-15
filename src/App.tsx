@@ -6,6 +6,7 @@ import Dashboard from './routes/dashboard/Dashboard';
 
 const Login = lazy(() => import('src/routes/login/Login'));
 const Signup = lazy(() => import('src/routes/signup/Signup'));
+const Profile = lazy(() => import('src/routes/profile/Profile'));
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
               <Route exact path="/" component={Dashboard} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
-              <Route exact path="/profile/:id" component={() => <div>profile</div>} />
+              <Route exact path="/profile/:id" component={Profile} />
               <Route path="*" component={() => <div>404</div>} />
             </Switch>
           </div>
