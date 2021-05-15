@@ -1,3 +1,3 @@
-export { loginUser } from './login/loginUser';
-export { signupUser } from './signup/signupUser';
-export { validateUser } from './validate-user/validateUser';
+export { login } from './loginUser';
+export { signup } from './signupUser';
+export { validateUser } from './validateUser';

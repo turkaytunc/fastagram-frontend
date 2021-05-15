@@ -5,7 +5,7 @@ import { FaFacebookSquare } from 'react-icons/fa';
 import { loginValidator } from 'src/helpers/joiValidators';
 import instagramLogo from 'src/images/instagram-login.png';
 import { FakePhoneScreen, InputBox } from 'src/components';
-import { loginUser } from 'src/api';
+import { login } from 'src/api';
 import { UserContext } from 'src/context/UserContext';
 import useAuth from 'src/hooks/useAuth';
 
@@ -16,7 +16,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(true);
   const user = useContext(UserContext);
   const history = useHistory();
-  useAuth();
+  useAuth('/');
 
   useEffect(() => {
     document.title = 'Login • Instagram';
@@ -27,7 +27,7 @@ const Login = () => {
 
     try {
       await loginValidator(email, password);
-      const response = await loginUser(email, password);
+      const response = await login(email, password);
 
       const data = await response.json();
 

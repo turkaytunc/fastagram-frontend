@@ -1,9 +1,14 @@
 import { useParams } from 'react-router-dom';
+import { Navbar } from 'src/components';
 
 const Profile = () => {
   const { userId }: { userId: string } = useParams();
 
-  return <div>Profile Page for userId: {userId}</div>;
+  return (
+    <div>
+      <Navbar /> Profile Page for userId: {userId}
+    </div>
+  );
 };
 
 export default Profile;

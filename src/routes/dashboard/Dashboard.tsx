@@ -5,7 +5,7 @@ import { Navbar } from 'src/components';
 import useAuth from 'src/hooks/useAuth';
 
 const Dashboard = () => {
-  useAuth();
+  useAuth('/');
 
   useEffect(() => {
     document.title = 'Instagram';

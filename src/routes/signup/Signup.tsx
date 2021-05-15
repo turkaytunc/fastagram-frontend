@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { FaFacebookSquare } from 'react-icons/fa';
 import { signupValidator } from 'src/helpers/joiValidators';
 import { FakePhoneScreen, InputBox } from 'src/components';
-import { signupUser } from 'src/api';
+import { signup } from 'src/api';
 import { UserContext } from 'src/context/UserContext';
 
 const Signup = () => {
@@ -28,7 +28,7 @@ const Signup = () => {
 
     try {
       await signupValidator(username, password, email);
-      const response = await signupUser(username, email, password);
+      const response = await signup(username, email, password);
       const data = await response.json();
 
       if (data.message) {
