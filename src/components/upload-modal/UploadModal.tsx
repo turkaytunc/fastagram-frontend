@@ -2,6 +2,7 @@ import { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './upload-modal.scss';
 import FileUpload from 'src/components/file-upload/FileUpload';
+import { FaCloudUploadAlt } from 'react-icons/fa';
 import { addPhotoByUserId } from 'src/api';
 import { useParams } from 'react-router';
 
@@ -35,9 +36,12 @@ const UploadModal = ({ setIsOpen, isOpen }: { setIsOpen: any; isOpen: boolean })
           return <img key={Math.random()} src={file.base64} alt="uploaded file" />;
         })}
       </div>
-      <button onClick={handleUpload} type="button" className="top-36 absolute">
-        Upload
-      </button>
+      <div className="w-full bottom-5 items-center absolute flex justify-between px-10">
+        <span className="text-xs font-light">Max 100kb and jpg only</span>
+        <button onClick={handleUpload} type="button" disabled={!files[0].base64}>
+          <FaCloudUploadAlt size={40} fill={`${files[0].base64 ? '#333' : '#ccc'}`} />
+        </button>
+      </div>
     </div>,
     document.getElementById('upload-modal')!
   );
