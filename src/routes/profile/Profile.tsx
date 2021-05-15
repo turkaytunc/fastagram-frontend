@@ -6,7 +6,10 @@ import { Navbar } from 'src/components';
 const Profile = () => {
   const { userId }: { userId: string } = useParams();
   const [fetchError, setFetchError] = useState('');
-  const [profile, setProfile] = useState({});
+  const [profile, setProfile] = useState([{}] as [
+    // eslint-disable-next-line camelcase
+    { data: string; user_id: string; created_at: string; id: number }
+  ]);
   const history = useHistory();
 
   useEffect(() => {
@@ -16,7 +19,7 @@ const Profile = () => {
         const data = await response.json();
 
         if (response.status === 200) {
-          setProfile(data);
+          setProfile(data.photos);
           return;
         }
         history.push('/login');
@@ -30,7 +33,11 @@ const Profile = () => {
     <div>
       <Navbar /> Profile Page for userId: {userId}
       <div>{fetchError}</div>
-      <div>{JSON.stringify(profile, null, 2)}</div>
+      <div>
+        {profile.map((item) => (
+          <img src={item.data} alt="Hey" />
+        ))}
+      </div>
     </div>
   );
 };

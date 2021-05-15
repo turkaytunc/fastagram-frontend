@@ -4,16 +4,15 @@ import './upload-modal.scss';
 import FileUpload from 'src/components/file-upload/FileUpload';
 import { FaCloudUploadAlt } from 'react-icons/fa';
 import { addPhotoByUserId } from 'src/api';
-import { useParams } from 'react-router';
 
 const UploadModal = ({ setIsOpen, isOpen }: { setIsOpen: any; isOpen: boolean }) => {
   const [files, setFiles] = useState([{}] as [{ base64: string }]);
-  const params: { userId: string } = useParams();
+
   const handleUpload = async () => {
     try {
       if (files.length < 1) return;
 
-      await addPhotoByUserId(files[0].base64, params.userId);
+      await addPhotoByUserId(files[0].base64);
     } catch (error) {
       console.log(error);
     }

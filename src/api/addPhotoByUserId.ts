@@ -1,7 +1,7 @@
 import { BASE_URL } from 'src/constants';
 
-export const addPhotoByUserId = async (photoData: string, userId: string) =>
-  window.fetch(`${BASE_URL}/profile/addphoto/${userId}`, {
+export const addPhotoByUserId = async (photoData: string) =>
+  window.fetch(`${BASE_URL}/profile/addphoto/`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
