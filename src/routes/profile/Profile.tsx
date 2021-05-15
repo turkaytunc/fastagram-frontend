@@ -1,13 +1,15 @@
 import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
+import { UserContext } from 'src/context/UserContext';
+import useAuth from 'src/hooks/useAuth';
 
 const Profile = () => {
-  const params: { id: string } = useParams();
+  const params: any = useParams();
 
   useEffect(() => {
-    console.log(params.id);
+    console.log(params);
   }, [params]);
-  return <div>Profile Page</div>;
+  return <div>Profile Page {JSON.stringify(params)}</div>;
 };
 
 export default Profile;

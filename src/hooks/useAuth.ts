@@ -16,7 +16,8 @@ export default function useAuth() {
         const data = await response.json();
 
         if (!data.message) {
-          userContext?.setUser(data);
+          userContext?.setUser(data.user);
+          localStorage.setItem('user', JSON.stringify(data.user));
           history.push('/');
           return;
         }

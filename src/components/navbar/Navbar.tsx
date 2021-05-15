@@ -1,5 +1,5 @@
 import './navbar.scss';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import logo from 'src/images/instagram-login.png';
 import {
   FaRegPlusSquare,
@@ -10,12 +10,14 @@ import {
   FaHome,
 } from 'react-icons/fa';
 import { useState } from 'react';
+
 import CogMenu from '../cog-menu/CogMenu';
 import UploadModal from '../upload-modal/UploadModal';
 
 const Navbar = () => {
   const [showCogMenu, setShowCogMenu] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <nav className="navbar-container border-b border-gray-300 py-2 px-3 sm:px-10 md:px-20">
       <section className="navbar-logo w-96">
