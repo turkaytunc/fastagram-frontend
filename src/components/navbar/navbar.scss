@@ -13,10 +13,11 @@
 }
 
 .navbar-links {
+  width: 14rem;
   display: flex;
   align-items: center;
-  justify-content: center;
-  li:not(:first-child) {
-    padding-left: 0.75rem;
+  justify-content: flex-start;
+  *:not(:first-child) {
+    margin-left: 0.75rem;
   }
 }

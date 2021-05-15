@@ -9,8 +9,11 @@ import {
   FaCog,
   FaHome,
 } from 'react-icons/fa';
+import { useState } from 'react';
+import CogMenu from '../cog-menu/CogMenu';
 
-const TopNavbar = () => {
+const Navbar = () => {
+  const [showCogMenu, setShowCogMenu] = useState(false);
   return (
     <nav className="navbar-container border-b border-gray-300 py-2 px-3 sm:px-10 md:px-20">
       <section className="navbar-logo w-96">
@@ -18,7 +21,7 @@ const TopNavbar = () => {
           <img src={logo} alt="instagram" className="w-28" />
         </Link>
       </section>
-      <ul className="navbar-links w-96 md:ml-48">
+      <ul className="navbar-links w-96 md:ml-48 relative">
         <li>
           <Link to="/">
             <FaHome size="22" fill="#252525" />
@@ -36,12 +39,13 @@ const TopNavbar = () => {
         <li>
           <FaRegHeart size="22" fill="#252525" />
         </li>
-        <li>
+        <button type="button" onClick={() => setShowCogMenu((prev) => !prev)}>
           <FaCog size="22" fill="#252525" />
-        </li>
+        </button>
+        {showCogMenu && <CogMenu />}
       </ul>
     </nav>
   );
 };
 
-export default TopNavbar;
+export default Navbar;
