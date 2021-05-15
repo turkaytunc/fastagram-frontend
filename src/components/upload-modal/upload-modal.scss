@@ -1,0 +1,9 @@
+.upload-modal-container {
+  width: calc(100% - 2rem);
+  left: 1rem;
+  height: calc(100% - 10rem);
+  position: absolute;
+  top: 6.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2), -1px -1px 3px rgba(0, 0, 0, 0.2);
+}

@@ -11,9 +11,11 @@ import {
 } from 'react-icons/fa';
 import { useState } from 'react';
 import CogMenu from '../cog-menu/CogMenu';
+import UploadModal from '../upload-modal/UploadModal';
 
 const Navbar = () => {
   const [showCogMenu, setShowCogMenu] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <nav className="navbar-container border-b border-gray-300 py-2 px-3 sm:px-10 md:px-20">
       <section className="navbar-logo w-96">
@@ -27,9 +29,10 @@ const Navbar = () => {
             <FaHome size="22" fill="#252525" />
           </Link>
         </li>
-        <li className="menu-item">
+        <button type="button" onClick={() => setIsOpen((prev) => !prev)} className="menu-item">
           <FaRegPlusSquare size="22" fill="#252525" />
-        </li>
+        </button>
+        <UploadModal isOpen={isOpen} setIsOpen={setIsOpen} />
         <li className="menu-item">
           <FaRegPaperPlane size="22" fill="#252525" />
         </li>
