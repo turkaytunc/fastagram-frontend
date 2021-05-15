@@ -45,7 +45,11 @@ const Navbar = () => {
         <button className="menu-item" type="button" onClick={() => setShowCogMenu((prev) => !prev)}>
           <FaCog size="22" fill="#252525" />
         </button>
-        {showCogMenu && <CogMenu />}
+        {showCogMenu && (
+          <div className="absolute top-12">
+            <CogMenu />
+          </div>
+        )}
       </ul>
     </nav>
   );
