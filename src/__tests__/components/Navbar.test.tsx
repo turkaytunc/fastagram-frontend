@@ -107,5 +107,7 @@ describe('<Navbar />', () => {
     (await screen.findByTestId('modal-upload-button')).setAttribute('disabled', 'false');
 
     fireEvent.click(await screen.findByTestId('modal-upload-button'));
+
+    expect(await screen.findByText('Error Occurred')).toBeTruthy();
   });
 });

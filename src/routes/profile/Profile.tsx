@@ -11,9 +11,11 @@ const Profile = () => {
       <Navbar />
       <div>Profile Page for userId: {userId}</div>
       <div>{fetchError}</div>
-      {profile.map((item) => (
-        <img key={item.id} src={item.data} alt="profile items" />
-      ))}
+      <div>
+        {profile.map((item) => {
+          return <img key={item.id || Math.random()} src={item.data} alt="profile items" />;
+        })}
+      </div>
     </div>
   );
 };
