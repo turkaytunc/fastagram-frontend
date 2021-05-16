@@ -2,33 +2,12 @@ import { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { fetchProfileById } from 'src/api';
 import { Navbar } from 'src/components';
+import useProfile from 'src/hooks/useProfile';
 
 const Profile = () => {
   const { userId }: { userId: string } = useParams();
-  const [fetchError, setFetchError] = useState('');
-  const [profile, setProfile] = useState([{}] as [
-    // eslint-disable-next-line camelcase
-    { data: string; user_id: string; created_at: string; id: number }
-  ]);
-  const history = useHistory();
+  const [profile, fetchError] = useProfile(userId);
 
-  useEffect(() => {
-    const getProfile = async () => {
-      try {
-        const response = await fetchProfileById(userId);
-        const data = await response.json();
-
-        if (response.status === 200) {
-          setProfile(data.photos);
-          return;
-        }
-        history.push('/login');
-      } catch (error) {
-        setFetchError(error.message);
-      }
-    };
-    getProfile();
-  }, [userId]);
   return (
     <div>
       <Navbar /> Profile Page for userId: {userId}
