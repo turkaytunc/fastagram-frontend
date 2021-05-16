@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
-import { fetchProfileById } from 'src/api';
+import { useParams } from 'react-router-dom';
 import { Navbar } from 'src/components';
 import useProfile from 'src/hooks/useProfile';
 

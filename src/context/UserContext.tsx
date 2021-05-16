@@ -4,6 +4,7 @@ import { User } from 'src/interfaces';
 export const UserContext =
   createContext<null | {
     user: User | null;
+    // eslint-disable-next-line no-unused-vars
     setUser: (user: User | null) => void;
   }>(null);
 
