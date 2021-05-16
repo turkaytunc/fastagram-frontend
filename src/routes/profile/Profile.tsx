@@ -12,7 +12,7 @@ const Profile = () => {
       <div>{fetchError}</div>
       <div>
         {profile.map((item) => (
-          <img src={item.data} alt="profile items" />
+          <img key={item.id} src={item.data} alt="profile items" />
         ))}
       </div>
     </div>
