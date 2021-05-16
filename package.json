@@ -1,6 +1,7 @@
 {
   "name": "fastagram",
   "version": "0.1.0",
+  "homepage": "https://turkaytunc.github.io/fastagram",
   "private": true,
   "dependencies": {
     "@craco/craco": "^6.1.2",
