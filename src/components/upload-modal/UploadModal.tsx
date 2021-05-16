@@ -4,9 +4,11 @@ import './upload-modal.scss';
 import FileUpload from 'src/components/file-upload/FileUpload';
 import { FaCloudUploadAlt } from 'react-icons/fa';
 import { addPhotoByUserId } from 'src/api';
+import { DisplayError } from '..';
 
 const UploadModal = ({ setIsOpen, isOpen }: { setIsOpen: any; isOpen: boolean }) => {
   const [files, setFiles] = useState([{}] as [{ base64: string }]);
+  const [error, setError] = useState('fdasf');
 
   const handleUpload = async () => {
     try {
@@ -14,7 +16,7 @@ const UploadModal = ({ setIsOpen, isOpen }: { setIsOpen: any; isOpen: boolean })
 
       await addPhotoByUserId(files[0].base64);
     } catch (error) {
-      console.log(error);
+      setError(error.message);
     }
   };
   if (!isOpen) return null;
@@ -35,6 +37,11 @@ const UploadModal = ({ setIsOpen, isOpen }: { setIsOpen: any; isOpen: boolean })
           return <img key={Math.random()} src={file.base64} alt="uploaded file" />;
         })}
       </div>
+      {error && (
+        <div className="w-full bottom-16 items-center absolute flex justify-between px-10">
+          <DisplayError message={error} color="#f54a" />
+        </div>
+      )}
       <div className="w-full bottom-5 items-center absolute flex justify-between px-10">
         <span className="text-xs font-light">Max 100kb and jpg only</span>
         <button onClick={handleUpload} type="button" disabled={!files[0].base64}>

@@ -1,5 +1,5 @@
 import './navbar.scss';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import logo from 'src/images/instagram-login.png';
 import {
   FaRegPlusSquare,
