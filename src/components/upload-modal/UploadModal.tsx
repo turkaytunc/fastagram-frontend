@@ -34,15 +34,17 @@ const UploadModal = ({ setIsOpen, isOpen }: { setIsOpen: any; isOpen: boolean })
       </div>
       <div className="flex justify-center absolute top-14 lg:top-32 file-preview">
         {files?.map((file) => {
-          return <img key={Math.random()} src={file.base64} alt="uploaded file" />;
+          return file.base64 ? (
+            <img key={Math.random()} src={file.base64} alt="uploaded file" />
+          ) : null;
         })}
       </div>
       {error && (
-        <div className="w-full bottom-16 items-center absolute flex justify-between px-10">
+        <div className="w-full px-3 bottom-11 lg:bottom-16 items-center absolute flex justify-between lg:px-10">
           <DisplayError message={error} color="#f54a" />
         </div>
       )}
-      <div className="w-full bottom-5 items-center absolute flex justify-between px-10">
+      <div className="w-full bottom-0 px-3 lg:bottom-5 items-center absolute flex justify-between lg:px-10">
         <span className="text-xs font-light">Max 100kb and jpg only</span>
         <button onClick={handleUpload} type="button" disabled={!files[0].base64}>
           <FaCloudUploadAlt size={40} fill={`${files[0].base64 ? '#333' : '#ccc'}`} />
