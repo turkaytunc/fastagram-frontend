@@ -4,11 +4,11 @@ import './upload-modal.scss';
 import FileUpload from 'src/components/file-upload/FileUpload';
 import { FaCloudUploadAlt } from 'react-icons/fa';
 import { addPhotoByUserId } from 'src/api';
-import { DisplayError } from '..';
+import { DisplayError } from 'src/components';
 
 const UploadModal = ({ setIsOpen, isOpen }: { setIsOpen: any; isOpen: boolean }) => {
   const [files, setFiles] = useState([{}] as [{ base64: string }]);
-  const [error, setError] = useState('fdasf');
+  const [error, setError] = useState('');
 
   const handleUpload = async () => {
     try {
