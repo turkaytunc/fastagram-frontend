@@ -60,6 +60,7 @@ const Login = () => {
         </div>
         <form onSubmit={(e) => handleLogin(e)}>
           <InputBox
+            testId="login-email"
             item={email}
             setItem={setEmail}
             setError={setInputError}
@@ -69,6 +70,7 @@ const Login = () => {
 
           <div className="flex w-68 mt-2 rounded-sm">
             <InputBox
+              testId="login-password"
               item={password}
               setItem={setPassword}
               setError={setInputError}
@@ -77,6 +79,7 @@ const Login = () => {
             />
             <div className="w-12 border mt-2 border-l-0 rounded-sm">
               <button
+                data-testid="login-show-hide"
                 className="w-full h-10 text-sm font-medium"
                 type="button"
                 onClick={() => setShowPassword((prev) => !prev)}

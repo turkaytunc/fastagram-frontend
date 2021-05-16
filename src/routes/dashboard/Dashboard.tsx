@@ -1,6 +1,7 @@
 /* eslint-disable dot-notation */
 import { useEffect } from 'react';
 import { Navbar } from 'src/components';
+import './dashboard.scss';
 
 import useAuth from 'src/hooks/useAuth';
 

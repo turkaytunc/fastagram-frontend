@@ -6,7 +6,8 @@ import { useHistory } from 'react-router-dom';
 export default function useAuth(path: string) {
   const userContext = useContext(UserContext);
   const history = useHistory();
-  const [err, setErr] = useState('');
+  // eslint-disable-next-line no-unused-vars
+  const [_, setErr] = useState('');
 
   useEffect(() => {
     const fetchUser = async () => {

@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
-import { fetchProfileById } from 'src/api';
+import { useParams } from 'react-router-dom';
 import { Navbar } from 'src/components';
 import useProfile from 'src/hooks/useProfile';
 
@@ -10,12 +8,13 @@ const Profile = () => {
 
   return (
     <div>
-      <Navbar /> Profile Page for userId: {userId}
+      <Navbar />
+      <div>Profile Page for userId: {userId}</div>
       <div>{fetchError}</div>
       <div>
-        {profile.map((item) => (
-          <img src={item.data} alt="profile items" />
-        ))}
+        {profile.map((item) => {
+          return <img key={item.id || Math.random()} src={item.data} alt="profile items" />;
+        })}
       </div>
     </div>
   );

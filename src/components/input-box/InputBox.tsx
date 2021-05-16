@@ -2,12 +2,14 @@ import React from 'react';
 import './input-box.scss';
 
 const InputBox = ({
+  testId,
   item,
   setItem,
   setError,
   isPassword,
   placeholder,
 }: {
+  testId: string;
   item: string;
   setItem: any;
   setError: any;
@@ -24,6 +26,7 @@ const InputBox = ({
         {placeholder}
       </span>
       <input
+        data-testid={testId}
         className="input-box"
         type={`${isPassword ? 'password' : 'text'}`}
         id={placeholder}

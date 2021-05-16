@@ -48,6 +48,7 @@ const FileUpload = ({
   return (
     <label htmlFor="fileInput" className="flex w-auto h-auto items-center justify-center">
       <input
+        data-testid="file-input"
         className="file-input"
         id="fileInput"
         type="file"
