@@ -1,4 +1,4 @@
-const DisplayError = ({ message, color = 'red' }: { message: string; color?: string }) => {
+const DisplayError = ({ message, color }: { message: string; color?: string }) => {
   return (
     <div
       style={{
