@@ -8,13 +8,12 @@ const Profile = () => {
 
   return (
     <div>
-      <Navbar /> Profile Page for userId: {userId}
+      <Navbar />
+      <div>Profile Page for userId: {userId}</div>
       <div>{fetchError}</div>
-      <div>
-        {profile.map((item) => (
-          <img key={item.id} src={item.data} alt="profile items" />
-        ))}
-      </div>
+      {profile.map((item) => (
+        <img key={item.id} src={item.data} alt="profile items" />
+      ))}
     </div>
   );
 };

@@ -64,6 +64,7 @@ const Signup = () => {
         </div>
         <form onSubmit={(e) => handleSignup(e)}>
           <InputBox
+            testId="email-input"
             item={email}
             setItem={setEmail}
             setError={setInputError}
@@ -71,6 +72,7 @@ const Signup = () => {
             placeholder="Email"
           />
           <InputBox
+            testId="fullname-input"
             item={fullname}
             setItem={setFullname}
             setError={setInputError}
@@ -78,6 +80,7 @@ const Signup = () => {
             placeholder="Full Name"
           />
           <InputBox
+            testId="username-input"
             item={username}
             setItem={setUsername}
             setError={setInputError}
@@ -87,6 +90,7 @@ const Signup = () => {
 
           <div className="flex w-68 rounded-sm">
             <InputBox
+              testId="password-input"
               item={password}
               setItem={setPassword}
               setError={setInputError}
@@ -95,6 +99,7 @@ const Signup = () => {
             />
             <div className="w-12 border border-l-0 rounded-sm mt-2">
               <button
+                data-testid="show-hide-button"
                 className="w-full h-10 text-sm font-medium"
                 type="button"
                 onClick={() => setShowPassword((prev) => !prev)}
