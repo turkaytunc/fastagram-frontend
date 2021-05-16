@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { validateUser } from 'src/api';
 import { UserContext } from 'src/context/UserContext';
-import { User } from 'src/interfaces';
 import { useHistory } from 'react-router-dom';
 
 export default function useAuth(path: string) {
@@ -25,8 +24,8 @@ export default function useAuth(path: string) {
         history.push('/login');
       } catch (error) {
         userContext?.setUser(null);
-        history.push('/login');
         setErr('User validation failed');
+        history.push('/login');
       }
     };
     fetchUser();
