@@ -9,7 +9,12 @@ describe('<Profile />', () => {
   it('should render without crashing', async () => {
     (window.fetch as jest.Mock).mockResolvedValue({
       status: 200,
-      json: () => ({ photos: [] }),
+      json: () => ({
+        photos: [
+          { id: 1, data: 'jkfdsjfds' },
+          { id: 22, data: 'fdskjf' },
+        ],
+      }),
     });
     const history = createBrowserHistory();
     const userId = '487j-fdslkj23-fds3j34j';
