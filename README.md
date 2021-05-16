@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.com/turkaytunc/fastagram-frontend.svg?branch=main)](https://travis-ci.com/turkaytunc/fastagram-frontend)
-
 [![codecov](https://codecov.io/gh/turkaytunc/fastagram-frontend/branch/main/graph/badge.svg?token=1CTQI68UOS)](https://codecov.io/gh/turkaytunc/fastagram-frontend)
 
 # :art: Fastagram Frontend
