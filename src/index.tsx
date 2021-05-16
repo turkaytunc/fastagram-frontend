@@ -7,7 +7,7 @@ import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter basename="/fastagram">
+    <BrowserRouter basename="/fastagram-frontend">
       <App />
     </BrowserRouter>
   </React.StrictMode>,
