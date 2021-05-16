@@ -23,6 +23,7 @@ const UploadModal = ({ setIsOpen, isOpen }: { setIsOpen: any; isOpen: boolean })
   return ReactDOM.createPortal(
     <div className="upload-modal-container">
       <button
+        data-testid="modal-close-button"
         type="button"
         onClick={() => setIsOpen((prev: any) => !prev)}
         className="text-3xl font-light right-5 absolute"
@@ -46,7 +47,12 @@ const UploadModal = ({ setIsOpen, isOpen }: { setIsOpen: any; isOpen: boolean })
       )}
       <div className="w-full bottom-0 px-3 lg:bottom-5 items-center absolute flex justify-between lg:px-10">
         <span className="text-xs font-light">Max 100kb and jpg only</span>
-        <button onClick={handleUpload} type="button" disabled={!files[0].base64}>
+        <button
+          onClick={handleUpload}
+          data-testid="modal-upload-button"
+          type="button"
+          disabled={!files[0].base64}
+        >
           <FaCloudUploadAlt size={40} fill={`${files[0].base64 ? '#333' : '#ccc'}`} />
         </button>
       </div>
