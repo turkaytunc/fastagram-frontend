@@ -87,4 +87,25 @@ describe('<Navbar />', () => {
 
     fireEvent.click(await screen.findByTestId('modal-upload-button'));
   });
+
+  it('should fire image upload button click event and get fetch error ', async () => {
+    history.push('/');
+    (window.fetch as jest.Mock).mockRejectedValue(new Error('Error Occurred'));
+
+    render(
+      <Router history={history}>
+        <Navbar />
+        <div id="upload-modal" />
+      </Router>
+    );
+
+    fireEvent.click(await screen.findByTestId('navbar-modal-button'));
+    fireEvent.change(await screen.findByTestId('file-input'), {
+      target: { files: [new Blob(), new Blob()] },
+    });
+
+    (await screen.findByTestId('modal-upload-button')).setAttribute('disabled', 'false');
+
+    fireEvent.click(await screen.findByTestId('modal-upload-button'));
+  });
 });

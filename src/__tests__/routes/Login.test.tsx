@@ -86,4 +86,22 @@ describe('Login Route ', () => {
     fireEvent.click(await screen.findByText('Log in'));
     expect(await screen.findByText('some error occurred!'));
   });
+
+  it('should fire successful submit event but get error in return', async () => {
+    (window.fetch as jest.Mock).mockResolvedValue({
+      status: 400,
+      json: () => ({ message: 'some error occurred!' }),
+    });
+    render(
+      <Router history={history}>
+        <Login />
+      </Router>
+    );
+    fireEvent.change(await screen.findByTestId('login-email'), {
+      target: { value: 'fakemail@mail.com' },
+    });
+    fireEvent.click(await screen.findByText('Log in'));
+
+    fireEvent.focus(await screen.findByTestId('login-email'));
+  });
 });
