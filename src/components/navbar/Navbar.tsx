@@ -31,7 +31,12 @@ const Navbar = () => {
             <FaHome size="22" fill="#252525" />
           </Link>
         </li>
-        <button type="button" onClick={() => setIsOpen((prev) => !prev)} className="menu-item">
+        <button
+          data-testid="navbar-modal-button"
+          type="button"
+          onClick={() => setIsOpen((prev) => !prev)}
+          className="menu-item"
+        >
           <FaRegPlusSquare size="22" fill="#252525" />
         </button>
         <UploadModal isOpen={isOpen} setIsOpen={setIsOpen} />
@@ -44,11 +49,16 @@ const Navbar = () => {
         <li className="menu-item">
           <FaRegHeart size="22" fill="#252525" />
         </li>
-        <button className="menu-item" type="button" onClick={() => setShowCogMenu((prev) => !prev)}>
+        <button
+          data-testid="navbar-cog-button"
+          className="menu-item"
+          type="button"
+          onClick={() => setShowCogMenu((prev) => !prev)}
+        >
           <FaCog size="22" fill="#252525" />
         </button>
         {showCogMenu && (
-          <div className="absolute top-12">
+          <div data-testid="navbar-cog-container" className="absolute top-12">
             <CogMenu />
           </div>
         )}
