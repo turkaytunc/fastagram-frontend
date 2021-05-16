@@ -1,17 +1,28 @@
 import { screen, render, fireEvent } from '@testing-library/react';
+import { Router } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 import Signup from 'src/routes/signup/Signup';
 
 jest.spyOn(window, 'fetch');
 
 describe('Signup Route ', () => {
+  const history = createBrowserHistory();
   it('should render without crash', async () => {
-    render(<Signup />);
+    render(
+      <Router history={history}>
+        <Signup />
+      </Router>
+    );
 
     expect(await screen.findByText('Sign up')).toBeInTheDocument();
   });
 
   it('should fire submit event and get error because empty inputs', async () => {
-    render(<Signup />);
+    render(
+      <Router history={history}>
+        <Signup />
+      </Router>
+    );
 
     fireEvent.submit((await screen.findAllByRole('button'))[1]);
 
@@ -19,7 +30,11 @@ describe('Signup Route ', () => {
   });
 
   it('should fire input change event', async () => {
-    render(<Signup />);
+    render(
+      <Router history={history}>
+        <Signup />
+      </Router>
+    );
 
     fireEvent.change(await screen.findByTestId('password-input'), {
       target: { value: '20kfdsjsfd' },
@@ -33,7 +48,11 @@ describe('Signup Route ', () => {
   });
 
   it('should fire click event and show-hide password', async () => {
-    render(<Signup />);
+    render(
+      <Router history={history}>
+        <Signup />
+      </Router>
+    );
 
     fireEvent.change(await screen.findByTestId('password-input'), {
       target: { value: '20kfdsjsfd' },
@@ -46,7 +65,11 @@ describe('Signup Route ', () => {
 
   it('should fire successful submit event', async () => {
     (window.fetch as jest.Mock).mockResolvedValue({ status: 200, json: () => ({ data: {} }) });
-    render(<Signup />);
+    render(
+      <Router history={history}>
+        <Signup />
+      </Router>
+    );
 
     fireEvent.change(await screen.findByTestId('password-input'), {
       target: { value: '20kfjfdskjkljsdf' },
@@ -66,7 +89,11 @@ describe('Signup Route ', () => {
       status: 200,
       json: () => ({ message: 'some kind of error' }),
     });
-    render(<Signup />);
+    render(
+      <Router history={history}>
+        <Signup />
+      </Router>
+    );
 
     fireEvent.change(await screen.findByTestId('password-input'), {
       target: { value: '20kfj3424kjkljsdf' },
