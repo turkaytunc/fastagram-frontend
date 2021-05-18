@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './signup.scss';
 import instagramLogo from 'src/images/instagram-login.png';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { FaFacebookSquare } from 'react-icons/fa';
 import { signupValidator } from 'src/helpers/joiValidators';
 import { FakePhoneScreen, InputBox } from 'src/components';
@@ -129,7 +129,7 @@ const Signup = () => {
           and <span className="font-medium">Cookies Policy</span> .
         </section>
         <div className="text-sm w-68 text-gray-400 mt-5">
-          Have an account? <a href="/login">Log in</a>
+          Have an account? <Link to="/login">Log in</Link>
         </div>
       </section>
     </section>
