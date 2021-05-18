@@ -6,3 +6,4 @@ export { default as FileUpload } from './file-upload/FileUpload';
 export { default as UploadModal } from './upload-modal/UploadModal';
 export { default as DisplayError } from './display-error/DisplayError';
 export { default as PhotosContainer } from './photos-container/PhotosContainer';
+export { default as FeedItem } from './feed-item/FeedItem';

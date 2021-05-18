@@ -20,7 +20,7 @@ const Navbar = () => {
   const history = useHistory();
 
   return (
-    <nav className="navbar-container border-b border-gray-300 py-2 px-3 sm:px-10 md:px-20 bg-gray-50">
+    <nav className="navbar-container border-b border-gray-300 py-2 px-3 sm:px-10 md:px-20 bg-gray-50 opacity-100 z-10">
       <section className="navbar-logo w-96">
         <Link to="/">
           <img src={logo} alt="instagram" className="w-28" />
