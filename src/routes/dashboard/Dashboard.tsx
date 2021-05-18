@@ -1,6 +1,6 @@
 /* eslint-disable dot-notation */
 import { useEffect } from 'react';
-import { Navbar } from 'src/components';
+import { FeedItem, Navbar } from 'src/components';
 import './dashboard.scss';
 
 import useAuth from 'src/hooks/useAuth';
@@ -15,6 +15,12 @@ const Dashboard = () => {
   return (
     <div className="dashboard-container">
       <Navbar />
+      <div className="dashboard-feed">
+        <div className="feed-photo">
+          <FeedItem />
+        </div>
+        <div className="feed-follow">Side Follow</div>
+      </div>
     </div>
   );
 };

@@ -1,3 +1,29 @@
 .dashboard-container {
   padding-bottom: 100vh;
 }
+
+.dashboard-feed {
+  width: 60%;
+  display: flex;
+  margin-left: 20%;
+  position: relative;
+}
+
+.feed-photo {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.feed-follow {
+  display: flex;
+  position: sticky;
+  left: 100%;
+  right: 0;
+  width: 200px;
+  height: 100%;
+  top: 10%;
+}
