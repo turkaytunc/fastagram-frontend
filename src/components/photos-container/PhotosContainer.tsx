@@ -5,8 +5,8 @@ const PhotosContainer = ({ photos }: { photos: Array<any> }) => {
     <div className="photos-container">
       {photos.map((item) => {
         return (
-          <div className="photo">
-            <img key={item.id || Math.random()} src={item.data} alt="profile item" />
+          <div key={item.id || Math.random()} className="photo">
+            <img src={item.data} alt="profile item" />
           </div>
         );
       })}
