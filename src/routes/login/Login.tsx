@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import './login.scss';
 import { FaFacebookSquare } from 'react-icons/fa';
 import { loginValidator } from 'src/helpers/joiValidators';
@@ -108,7 +108,7 @@ const Login = () => {
         </form>
         {inputError && <div className="mt-5 w-68 text-red-500 text-sm">{inputError}</div>}
         <div className="text-sm w-68 text-gray-400 mt-5">
-          Don't have an account? <a href="/signup">Sign up</a>
+          Don't have an account? <Link to="/signup">Sign up</Link>
         </div>
       </section>
       <div>{user?.user?.email}</div>
