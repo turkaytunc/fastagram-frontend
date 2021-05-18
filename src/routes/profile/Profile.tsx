@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { Navbar } from 'src/components';
+import { Navbar, PhotosContainer } from 'src/components';
 import useProfile from 'src/hooks/useProfile';
 
 const Profile = () => {
@@ -12,9 +12,7 @@ const Profile = () => {
       <div>Profile Page for userId: {userId}</div>
       <div>{fetchError}</div>
       <div>
-        {profile.map((item) => {
-          return <img key={item.id || Math.random()} src={item.data} alt="profile items" />;
-        })}
+        <PhotosContainer photos={profile} />
       </div>
     </div>
   );
