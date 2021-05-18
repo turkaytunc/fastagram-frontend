@@ -21,7 +21,7 @@ const UploadModal = ({ setIsOpen, isOpen }: { setIsOpen: any; isOpen: boolean })
   };
   if (!isOpen) return null;
   return ReactDOM.createPortal(
-    <div className="upload-modal-container">
+    <div className="upload-modal-container bg-gray-50">
       <button
         data-testid="modal-close-button"
         type="button"
@@ -33,7 +33,7 @@ const UploadModal = ({ setIsOpen, isOpen }: { setIsOpen: any; isOpen: boolean })
       <div className="w-6 top-2 absolute left-5">
         <FileUpload multiple onDone={setFiles} iconSize="30" fill="#333" />
       </div>
-      <div className="flex justify-center absolute top-14 lg:top-32 file-preview">
+      <div className="flex justify-center absolute -left-16 top-14 lg:top-32 file-preview">
         {files?.map((file) => {
           return file.base64 ? (
             <img key={Math.random()} src={file.base64} alt="uploaded file" />

@@ -12,7 +12,7 @@ function App() {
   return (
     <UserContextProvider>
       <Suspense fallback={<div className="text-center">Loading...</div>}>
-        <div className="app-container">
+        <div className="app-container ">
           <Switch>
             <Route exact path="/" component={Dashboard} />
             <Route exact path="/login" component={Login} />
@@ -22,7 +22,6 @@ function App() {
           </Switch>
         </div>
       </Suspense>
-
       <div id="upload-modal" />
     </UserContextProvider>
   );

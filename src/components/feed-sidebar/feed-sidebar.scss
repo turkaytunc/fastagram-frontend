@@ -1,0 +1,41 @@
+.feed-sidebar {
+  display: none;
+}
+
+@media screen and (min-width: 1024px) {
+  .feed-sidebar {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    left: 100%;
+    right: 0;
+    width: 200px;
+    height: 100%;
+    top: 10%;
+    flex: 1;
+  }
+
+  .feed-follow-list {
+    display: flex;
+    width: 90%;
+    li {
+      list-style: none;
+      color: rgba(0, 0, 0, 0.5);
+      font-size: 0.7rem;
+    }
+
+    li::before {
+      content: '·';
+      font-size: 2rem;
+      vertical-align: middle;
+      line-height: 20px;
+    }
+    li:first-child::before {
+      content: '';
+    }
+  }
+
+  .feed-follow-user {
+    height: 100px;
+  }
+}
