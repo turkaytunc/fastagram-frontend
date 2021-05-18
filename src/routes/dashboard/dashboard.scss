@@ -4,14 +4,13 @@
 }
 
 .dashboard-feed {
-  width: 60%;
+  width: 100%;
   display: flex;
-  margin-left: 20%;
   position: relative;
 }
 
 .feed-photo {
-  padding: 1rem;
+  padding-top: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,7 +22,7 @@
   display: none;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .feed-follow {
     display: flex;
     position: sticky;
@@ -32,5 +31,14 @@
     width: 200px;
     height: 100%;
     top: 10%;
+  }
+
+  .dashboard-feed {
+    width: 70%;
+    margin-left: 15%;
+  }
+
+  .feed-photo {
+    padding: 1rem;
   }
 }
