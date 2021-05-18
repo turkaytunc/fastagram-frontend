@@ -3,6 +3,8 @@
 
 # :art: Fastagram Frontend
 
+[Live Beta](https://turkaytunc.github.io/fastagram-frontend/)
+
 ![Login Screen](https://github.com/turkaytunc/fastagram-frontend/blob/main/github-static/arc-login.png)
 
 ![Signup Screen](https://github.com/turkaytunc/fastagram-frontend/blob/main/github-static/arc-signup.png)
