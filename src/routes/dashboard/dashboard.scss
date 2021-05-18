@@ -1,5 +1,6 @@
 .dashboard-container {
   padding-bottom: 100vh;
+  position: relative;
 }
 
 .dashboard-feed {
@@ -19,11 +20,17 @@
 }
 
 .feed-follow {
-  display: flex;
-  position: sticky;
-  left: 100%;
-  right: 0;
-  width: 200px;
-  height: 100%;
-  top: 10%;
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .feed-follow {
+    display: flex;
+    position: sticky;
+    left: 100%;
+    right: 0;
+    width: 200px;
+    height: 100%;
+    top: 10%;
+  }
 }

@@ -21,7 +21,7 @@ const UploadModal = ({ setIsOpen, isOpen }: { setIsOpen: any; isOpen: boolean })
   };
   if (!isOpen) return null;
   return ReactDOM.createPortal(
-    <div className="upload-modal-container">
+    <div className="upload-modal-container bg-gray-50">
       <button
         data-testid="modal-close-button"
         type="button"
