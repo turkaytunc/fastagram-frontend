@@ -17,14 +17,15 @@ export default function useAuth(path: string) {
 
         if (!data.message) {
           userContext?.setUser(data.user);
-          localStorage.setItem('user', JSON.stringify(data.user));
           history.push(`${path}`);
           return;
         }
         userContext?.setUser(null);
+        localStorage.removeItem('auth');
         history.push('/login');
       } catch (error) {
         userContext?.setUser(null);
+        localStorage.removeItem('auth');
         setErr('User validation failed');
         history.push('/login');
       }

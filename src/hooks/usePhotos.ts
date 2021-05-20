@@ -1,22 +1,23 @@
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { fetchProfileById } from 'src/api';
+import { fetchProfilePhotosById } from 'src/api';
 
-const useProfile = (userId: string) => {
+const usePhotos = (userId: string) => {
   const [fetchError, setFetchError] = useState('');
-  const [profile, setProfile] = useState(
-    {} as { username: string; fullname: string; email: string }
-  );
+  const [photos, setPhotos] = useState([{}] as [
+    // eslint-disable-next-line camelcase
+    { data: string; user_id: string; created_at: string; id: number }
+  ]);
   const history = useHistory();
 
   useEffect(() => {
-    const getProfile = async () => {
+    const getPhotos = async () => {
       try {
-        const response = await fetchProfileById(userId);
+        const response = await fetchProfilePhotosById(userId);
         const data = await response.json();
 
         if (response.status === 200) {
-          setProfile(data.profile);
+          setPhotos(data.photos);
           return;
         }
         throw new Error('Cannot fetch data');
@@ -25,9 +26,9 @@ const useProfile = (userId: string) => {
         history.push('/login');
       }
     };
-    getProfile();
+    getPhotos();
   }, [userId]);
-  return [profile, fetchError] as const;
+  return [photos, fetchError] as const;
 };
 
-export default useProfile;
+export default usePhotos;
