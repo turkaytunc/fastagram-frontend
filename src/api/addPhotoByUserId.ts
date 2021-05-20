@@ -8,5 +8,5 @@ export const addPhotoByUserId = async (photoData: string) =>
       'Content-Type': 'application/json;charset=UTF-8',
     },
     credentials: 'include',
-    body: JSON.stringify({ photoData }),
+    body: JSON.stringify({ photoData, auth: window.localStorage.getItem('auth') }),
   });

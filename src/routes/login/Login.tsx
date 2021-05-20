@@ -35,7 +35,8 @@ const Login = () => {
         setInputError(data.message);
         return;
       }
-      user?.setUser(data);
+      user?.setUser(data.user);
+      window.localStorage.setItem('auth', data.token);
       history.push('/');
     } catch (error) {
       setInputError(error.message);

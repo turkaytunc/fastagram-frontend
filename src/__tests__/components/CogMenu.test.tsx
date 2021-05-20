@@ -50,6 +50,6 @@ describe('<CogMenu />', () => {
 
     fireEvent.click(buttons[1]);
 
-    expect(history.location.pathname).toBe('/');
+    expect(history.location.pathname).toBe('/login');
   });
 });

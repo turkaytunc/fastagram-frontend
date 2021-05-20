@@ -8,4 +8,5 @@ export const validateUser = async () =>
       'Content-Type': 'application/json;charset=UTF-8',
     },
     credentials: 'include',
+    body: JSON.stringify({ auth: window.localStorage.getItem('auth') }),
   });

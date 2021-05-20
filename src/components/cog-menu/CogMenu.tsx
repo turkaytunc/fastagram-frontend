@@ -9,8 +9,8 @@ const CogMenu = () => {
   const history = useHistory();
   const user = useContext(UserContext);
 
-  const handleLogOut = async () => {
-    await logout();
+  const handleLogOut = () => {
+    logout();
     history.push('/login');
   };
 
