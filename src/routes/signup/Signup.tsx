@@ -28,7 +28,7 @@ const Signup = () => {
 
     try {
       await signupValidator(username, password, email);
-      const response = await signup(username, email, password);
+      const response = await signup(username, fullname, email, password);
       const data = await response.json();
 
       if (data.message) {
