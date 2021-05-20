@@ -10,7 +10,7 @@
 }
 
 .feed-photo {
-  flex: 2;
+  flex: 3;
   padding-top: 2rem;
   display: flex;
   flex-direction: column;
@@ -21,8 +21,8 @@
 
 @media screen and (min-width: 1024px) {
   .dashboard-feed {
-    width: 80%;
-    margin-left: 10%;
+    width: 70%;
+    margin-left: 15%;
   }
 
   .feed-photo {
