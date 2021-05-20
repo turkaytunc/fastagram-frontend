@@ -11,8 +11,7 @@ import {
 } from 'react-icons/fa';
 import { useState } from 'react';
 
-import CogMenu from '../cog-menu/CogMenu';
-import UploadModal from '../upload-modal/UploadModal';
+import { CogMenu, UploadModal, Search } from 'src/components';
 
 const Navbar = () => {
   const [showCogMenu, setShowCogMenu] = useState(false);
@@ -25,6 +24,9 @@ const Navbar = () => {
         <Link to="/">
           <img src={logo} alt="instagram" className="w-28" />
         </Link>
+      </section>
+      <section className="flex items-center justify-center">
+        <Search />
       </section>
       <ul className="navbar-links w-96 md:ml-48 relative">
         <li className="menu-item">
