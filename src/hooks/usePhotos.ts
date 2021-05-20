@@ -20,9 +20,10 @@ const usePhotos = (userId: string) => {
           setPhotos(data.photos);
           return;
         }
-        history.push('/login');
+        throw new Error('Cannot fetch data');
       } catch (error) {
         setFetchError(error.message);
+        history.push('/login');
       }
     };
     getPhotos();

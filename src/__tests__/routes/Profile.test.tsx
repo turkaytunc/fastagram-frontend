@@ -6,7 +6,7 @@ import Profile from 'src/routes/profile/Profile';
 jest.spyOn(window, 'fetch');
 
 describe('<Profile />', () => {
-  it('should render without crashing', async () => {
+  it('should fetch profile and photos without crashing', async () => {
     (window.fetch as jest.Mock).mockResolvedValue({
       status: 200,
       json: () => ({
@@ -14,8 +14,10 @@ describe('<Profile />', () => {
           { id: 1, data: 'jkfdsjfds' },
           { id: 22, data: 'fdskjf' },
         ],
+        profile: { username: 'turkay234', fullname: 'turkay tunc', email: 'turk@gmail.com' },
       }),
     });
+
     const history = createBrowserHistory();
     const userId = '487j-fdslkj23-fds3j34j';
     history.push(`/profile/${userId}`);
@@ -26,6 +28,22 @@ describe('<Profile />', () => {
       </Router>
     );
 
-    expect(await screen.findByText(/Profile Page/)).toBeInTheDocument();
+    expect(await screen.findByText(/turkay234/)).toBeInTheDocument();
+  });
+
+  it('should fetch profile and photos without crashing', async () => {
+    (window.fetch as jest.Mock).mockRejectedValue(new Error('Something went wrong!'));
+
+    const history = createBrowserHistory();
+    const userId = '487j-fdslkj23-fds3j34j';
+    history.push(`/profile/${userId}`);
+
+    render(
+      <Router history={history}>
+        <Profile />
+      </Router>
+    );
+
+    expect(await screen.findByText(/Something went wrong!/)).toBeInTheDocument();
   });
 });

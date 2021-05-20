@@ -19,9 +19,10 @@ const useProfile = (userId: string) => {
           setProfile(data.profile);
           return;
         }
-        history.push('/login');
+        throw new Error('Cannot fetch data');
       } catch (error) {
         setFetchError(error.message);
+        history.push('/login');
       }
     };
     getProfile();

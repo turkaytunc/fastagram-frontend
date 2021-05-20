@@ -6,7 +6,7 @@ import './profile.scss';
 
 const Profile = () => {
   const { userId }: { userId: string } = useParams();
-  const [photos, photosFetchError] = usePhotos(userId);
+  const [photos] = usePhotos(userId);
   const [profile, profileFetchError] = useProfile(userId);
 
   return (
@@ -17,7 +17,6 @@ const Profile = () => {
         <section>{profile.fullname}</section>
         <section>{profile.email}</section>
       </div>
-      <div>{photosFetchError}</div>
       <div>{profileFetchError}</div>
       <div>
         <PhotosContainer photos={photos} />
