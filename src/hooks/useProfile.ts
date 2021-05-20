@@ -4,10 +4,9 @@ import { fetchProfileById } from 'src/api';
 
 const useProfile = (userId: string) => {
   const [fetchError, setFetchError] = useState('');
-  const [profile, setProfile] = useState([{}] as [
-    // eslint-disable-next-line camelcase
-    { data: string; user_id: string; created_at: string; id: number }
-  ]);
+  const [profile, setProfile] = useState(
+    {} as { username: string; fullname: string; email: string }
+  );
   const history = useHistory();
 
   useEffect(() => {
@@ -17,7 +16,7 @@ const useProfile = (userId: string) => {
         const data = await response.json();
 
         if (response.status === 200) {
-          setProfile(data.photos);
+          setProfile(data.profile);
           return;
         }
         history.push('/login');
