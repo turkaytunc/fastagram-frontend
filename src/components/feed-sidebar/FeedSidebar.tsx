@@ -29,9 +29,7 @@ const FeedSidebar = () => {
         <li>Terms</li>
         <li>Locations</li>
       </ul>
-      <span className="text-gray-400 text-sm text-left mt-2">
-        © 2021 INSTAGRAM FROM TÜRKAY TUNÇ
-      </span>
+      <span className="text-gray-400 text-sm text-left mt-2">©2021 FASTAGRAM FROM TÜRKAY TUNÇ</span>
     </div>
   );
 };
