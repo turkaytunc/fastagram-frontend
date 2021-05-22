@@ -22,3 +22,7 @@
 .menu-item:not(:first-child) {
   margin-left: 0.75rem;
 }
+
+.menu-item {
+  cursor: pointer;
+}
