@@ -5,3 +5,4 @@ export { validateUser } from './validateUser';
 export { fetchProfilePhotosById } from './fetchProfilePhotosById';
 export { fetchProfileById } from './fetchProfileById';
 export { addPhotoByUserId } from './addPhotoByUserId';
+export { fetchFeedItems } from './fetchFeedItems';
