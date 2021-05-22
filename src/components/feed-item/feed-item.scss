@@ -5,4 +5,12 @@
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+}
+
+.feed-item-image {
+  max-width: calc(100% - 1rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

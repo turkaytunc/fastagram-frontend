@@ -17,8 +17,8 @@ const Dashboard = () => {
       <Navbar />
       <div className="dashboard-feed">
         <div className="feed-photo">
-          <FeedItem username="Hasan" />
-          <FeedItem username="Enes" />
+          <FeedItem likeCount="5" username="Hasan" />
+          <FeedItem likeCount="13424" username="Enes" />
         </div>
         <FeedSidebar />
       </div>
