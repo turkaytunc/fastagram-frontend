@@ -1,0 +1,24 @@
+.comment-container {
+  width: 100%;
+  margin-top: 2rem;
+  display: flex;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+.comment-label {
+  display: flex;
+  width: 80%;
+  justify-content: center;
+  align-items: center;
+}
+
+.comment-area {
+  width: 100%;
+  resize: none;
+  outline: none;
+  padding: 1rem 0.2rem;
+}
+
+.comment-button {
+  width: 20%;
+}
