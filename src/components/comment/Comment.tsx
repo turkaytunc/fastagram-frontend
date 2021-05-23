@@ -6,6 +6,7 @@ const Comment = ({ photoId }: { photoId: string }) => {
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
     if (comment.length < 1) return;
+    // eslint-disable-next-line no-console
     console.log(comment);
   };
   return (
