@@ -34,7 +34,7 @@ const Dashboard = () => {
         <div className="feed-photo">
           {feedItems?.map((el) => (
             <FeedItem
-              key={el.user_id || Math.random()}
+              key={el.id || Math.random()}
               photoId={el.id}
               imageData={el.data}
               userId={el.user_id}

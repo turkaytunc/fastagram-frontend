@@ -1,7 +1,7 @@
 import { FormEvent, useState } from 'react';
 import './comment.scss';
 
-const Comment = () => {
+const Comment = ({ photoId }: { photoId: string }) => {
   const [comment, setComment] = useState('');
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
@@ -10,13 +10,13 @@ const Comment = () => {
   };
   return (
     <form className="comment-container">
-      <label htmlFor="comment-area" className="comment-label">
+      <label htmlFor={`comment-area-${photoId}`} className="comment-label">
         <textarea
           onChange={(event) => setComment(event.target.value)}
           value={comment}
           rows={1}
           maxLength={70}
-          id="comment-area"
+          id={`comment-area-${photoId}`}
           className="comment-area"
         />
       </label>

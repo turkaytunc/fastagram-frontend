@@ -20,7 +20,7 @@ const FeedItem = ({
       </div>
       <Heart size="30" />
       <div style={{ textAlign: 'start', marginTop: '0.2rem', padding: '0.5rem' }}>{300} likes</div>
-      <Comment />
+      <Comment photoId={photoId} />
     </div>
   );
 };
