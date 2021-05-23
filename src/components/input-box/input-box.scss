@@ -2,7 +2,7 @@
 
 .input-box {
   @apply w-full h-10 pl-2 pt-2 text-xs;
-  border-radius: 3px;
+  border-radius: 0.3rem;
 
   &:focus {
     background-color: scss.$input-focus-bg;

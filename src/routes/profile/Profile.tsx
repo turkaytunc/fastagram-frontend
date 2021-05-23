@@ -18,9 +18,12 @@ const Profile = () => {
         <section>{profile.email}</section>
       </div>
       <div>{profileFetchError}</div>
-      <div>
-        <PhotosContainer photos={photos} />
-      </div>
+
+      {userId && (
+        <div>
+          <PhotosContainer photos={photos} />
+        </div>
+      )}
     </div>
   );
 };

@@ -17,6 +17,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  max-width: 40rem;
 }
 
 @media screen and (min-width: 1024px) {
@@ -32,11 +33,12 @@
 
 @media screen and (min-width: 1500px) {
   .dashboard-feed {
-    width: 70%;
-    margin-left: 15%;
+    width: 60%;
+    margin-left: 20%;
   }
 
   .feed-photo {
-    flex: 3;
+    max-width: 100%;
+    flex: 5;
   }
 }

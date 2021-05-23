@@ -17,9 +17,9 @@ const InputBox = ({
   placeholder: string;
 }) => {
   return (
-    <label className="relative w-68 mt-2 border border-gray-200 rounded-sm" htmlFor={placeholder}>
+    <label className="relative w-68 mt-2 border border-gray-200 rounded-md" htmlFor={placeholder}>
       <span
-        className={`absolute left-4 text-xs text-gray-400 ${
+        className={`absolute left-4 text-xs rounded-md text-gray-400 ${
           item ? 'trans-effect' : ' top-3 trans-effect-none'
         }`}
       >
