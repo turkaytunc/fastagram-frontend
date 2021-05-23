@@ -1,29 +1,18 @@
 import { useParams } from 'react-router-dom';
-import { Navbar, PhotosContainer } from 'src/components';
-import usePhotos from 'src/hooks/usePhotos';
-import useProfile from 'src/hooks/useProfile';
+import { MiniProfile, Navbar, PhotosContainer } from 'src/components';
 import './profile.scss';
 
 const Profile = () => {
   const { userId }: { userId: string } = useParams();
-  const [photos] = usePhotos(userId);
-  const [profile, profileFetchError] = useProfile(userId);
 
   return (
     <div className="profile-container">
       <Navbar />
-      <div className="profile-user">
-        <section>{profile.username}</section>
-        <section>{profile.fullname}</section>
-        <section>{profile.email}</section>
-      </div>
-      <div>{profileFetchError}</div>
 
-      {userId && (
-        <div>
-          <PhotosContainer photos={photos} />
-        </div>
-      )}
+      <MiniProfile userId={userId} />
+      <div>
+        <PhotosContainer userId={userId} />
+      </div>
     </div>
   );
 };

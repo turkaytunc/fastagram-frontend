@@ -11,3 +11,4 @@ export { default as FeedSidebar } from './feed-sidebar/FeedSidebar';
 export { default as Search } from './search/Search';
 export { default as Heart } from './heart/Heart';
 export { default as Comment } from './comment/Comment';
+export { default as MiniProfile } from './mini-profile/MiniProfile';

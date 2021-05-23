@@ -1,5 +1,4 @@
-import { Comment, Heart } from 'src/components';
-import useProfile from 'src/hooks/useProfile';
+import { Comment, Heart, MiniProfile } from 'src/components';
 import './feed-item.scss';
 
 const FeedItem = ({
@@ -11,14 +10,10 @@ const FeedItem = ({
   userId: string;
   photoId: string;
 }) => {
-  const [profile] = useProfile(userId);
-
   return (
     <div className="feed-item-container">
       <header className="feed-item-profile">
-        <section>{profile?.username}</section>
-        <section>{profile?.fullname}</section>
-        <section>{profile?.email}</section>
+        <MiniProfile userId={userId} />
         user:{userId} <p>photo: {photoId}</p>
       </header>
       <div className="feed-item-image">

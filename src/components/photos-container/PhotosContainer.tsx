@@ -1,6 +1,8 @@
 import './photos-container.scss';
+import usePhotos from 'src/hooks/usePhotos';
 
-const PhotosContainer = ({ photos }: { photos: Array<any> }) => {
+const PhotosContainer = ({ userId }: { userId: string }) => {
+  const [photos, err] = usePhotos(userId);
   return (
     <div className="photos-container">
       {photos.map((item) => {
@@ -10,6 +12,7 @@ const PhotosContainer = ({ photos }: { photos: Array<any> }) => {
           </div>
         );
       })}
+      {err}
     </div>
   );
 };
