@@ -21,6 +21,7 @@ export default function useAuth(path: string) {
         userContext?.setUser(null);
         localStorage.removeItem('auth');
         history.push('/login');
+        return;
       } catch (error) {
         userContext?.setUser(null);
         localStorage.removeItem('auth');

@@ -27,6 +27,7 @@ const useProfile = (userId: string) => {
     };
     getProfile();
   }, [userId]);
+
   return [profile, fetchError] as const;
 };
 
