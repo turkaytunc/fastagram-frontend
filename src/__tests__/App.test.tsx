@@ -1,6 +1,7 @@
 import { cleanup, render, screen } from '@testing-library/react';
 import { Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
+import { UserContextProvider } from 'src/context/UserContext';
 import App from '../App';
 
 jest.spyOn(window, 'fetch');
@@ -13,7 +14,9 @@ describe('<App/>', () => {
     history.push('/fkldsjajf');
     render(
       <Router history={history}>
-        <App />
+        <UserContextProvider>
+          <App />
+        </UserContextProvider>
       </Router>
     );
 
@@ -21,23 +24,30 @@ describe('<App/>', () => {
   });
 
   it('should render and lazy load dashboard component without crashing', async () => {
-    fetch.mockResolvedValue(() => ({ status: 200, json: () => ({}) }));
+    fetch.mockResolvedValue({
+      status: 200,
+      json: () => ({ user_id: '243', id: 'fdsj', data: 'fdsjfklds' }),
+    });
     const history = createBrowserHistory();
     history.push('/');
     render(
       <Router history={history}>
-        <App />
+        <UserContextProvider>
+          <App />
+        </UserContextProvider>
       </Router>
     );
 
-    expect(await screen.findByText('Log in')).toBeInTheDocument();
+    expect(await screen.findByText(/FASTAGRAM/)).toBeInTheDocument();
   });
   it('should render component and lazy load login component without crashing', async () => {
     const history = createBrowserHistory();
     history.push('/login');
     render(
       <Router history={history}>
-        <App />
+        <UserContextProvider>
+          <App />
+        </UserContextProvider>
       </Router>
     );
 
@@ -48,7 +58,9 @@ describe('<App/>', () => {
     history.push('/signup');
     render(
       <Router history={history}>
-        <App />
+        <UserContextProvider>
+          <App />
+        </UserContextProvider>
       </Router>
     );
 
