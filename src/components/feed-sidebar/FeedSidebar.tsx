@@ -14,8 +14,8 @@ const FeedSidebar = () => {
           <section className="border rounded-full p-10">PP</section>
         </section>
         <section className="flex-col">
-          <section className="text-gray-800 text-xl text-left mt-2">{profile.username}</section>
-          <section className="text-gray-400 text-sm text-left mt-2">{profile.fullname}</section>
+          <section className="text-gray-800 text-xl text-left mt-2">{profile?.username}</section>
+          <section className="text-gray-400 text-sm text-left mt-2">{profile?.fullname}</section>
         </section>
         <section className="text-blue-400 cursor-pointer">Switch</section>
       </div>
@@ -29,9 +29,7 @@ const FeedSidebar = () => {
         <li>Terms</li>
         <li>Locations</li>
       </ul>
-      <span className="text-gray-400 text-sm text-left mt-2">
-        © 2021 INSTAGRAM FROM TÜRKAY TUNÇ
-      </span>
+      <span className="text-gray-400 text-sm text-left mt-2">©2021 FASTAGRAM FROM TÜRKAY TUNÇ</span>
     </div>
   );
 };

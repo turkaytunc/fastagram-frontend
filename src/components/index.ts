@@ -9,3 +9,5 @@ export { default as PhotosContainer } from './photos-container/PhotosContainer';
 export { default as FeedItem } from './feed-item/FeedItem';
 export { default as FeedSidebar } from './feed-sidebar/FeedSidebar';
 export { default as Search } from './search/Search';
+export { default as Heart } from './heart/Heart';
+export { default as Comment } from './comment/Comment';
