@@ -14,9 +14,13 @@ const UploadModal = ({ setIsOpen, isOpen }: { setIsOpen: any; isOpen: boolean })
     try {
       if (files.length < 1) return;
 
-      await addPhotoByUserId(files[0].base64);
       setFiles([{ base64: '' }]);
-      setIsOpen(false);
+      const response = await addPhotoByUserId(files[0].base64);
+      const data = await response.json();
+
+      if (data.status === 200) {
+        setIsOpen(false);
+      }
     } catch (error) {
       setError(error.message);
     }

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { validateUser } from 'src/api';
 import { UserContext } from 'src/context/UserContext';
 import { useHistory } from 'react-router-dom';
@@ -6,8 +6,6 @@ import { useHistory } from 'react-router-dom';
 export default function useAuth(path: string) {
   const userContext = useContext(UserContext);
   const history = useHistory();
-  // eslint-disable-next-line no-unused-vars
-  const [_, setErr] = useState('');
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -26,7 +24,6 @@ export default function useAuth(path: string) {
       } catch (error) {
         userContext?.setUser(null);
         localStorage.removeItem('auth');
-        setErr('User validation failed');
         history.push('/login');
       }
     };
