@@ -1,34 +1,36 @@
 import { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import { fetchProfileById } from 'src/api';
 
 const useProfile = (userId: string) => {
-  const [fetchError, setFetchError] = useState('');
   const [profile, setProfile] = useState(
     {} as { username: string; fullname: string; email: string }
   );
-  const history = useHistory();
+  const [err, setErr] = useState('');
 
   useEffect(() => {
+    let isMounted = true;
     const getProfile = async () => {
       try {
         const response = await fetchProfileById(userId);
         const data = await response.json();
 
-        if (response.status === 200) {
+        if (response.status === 200 && isMounted) {
           setProfile(data.profile);
           return;
         }
         throw new Error('Cannot fetch data');
       } catch (error) {
-        setFetchError(error.message);
-        history.push('/login');
+        setErr(error.message);
       }
     };
     getProfile();
+
+    return () => {
+      isMounted = false;
+    };
   }, [userId]);
 
-  return [profile, fetchError] as const;
+  return [profile, err] as const;
 };
 
 export default useProfile;

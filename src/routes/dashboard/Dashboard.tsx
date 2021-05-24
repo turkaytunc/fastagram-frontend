@@ -15,12 +15,18 @@ const Dashboard = () => {
   ]);
 
   useEffect(() => {
+    let isMounted = true;
     const fetchFeed = async () => {
       const response = await fetchFeedItems();
       const data = await response.json();
-      setFeedItems(data.feedItems);
+      if (isMounted) {
+        setFeedItems(data.feedItems);
+      }
     };
     fetchFeed();
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   useEffect(() => {
