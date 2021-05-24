@@ -21,7 +21,7 @@ describe('<Dashboard />', () => {
       </Router>
     );
 
-    expect(await screen.findByText(/likes/)).toBeTruthy();
+    expect(await screen.findByText(/like/)).toBeTruthy();
   });
 
   it('should render error', async () => {
