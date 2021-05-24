@@ -8,8 +8,8 @@ const Profile = () => {
   return (
     <div className="profile-container">
       <Navbar />
-      <MiniProfile userId={userId} />
-      <div>
+      <div className="profile-container-inner">
+        <MiniProfile userId={userId} />
         <PhotosContainer userId={userId} />
       </div>
     </div>
