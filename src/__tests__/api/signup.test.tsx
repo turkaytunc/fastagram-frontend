@@ -4,6 +4,7 @@ jest.spyOn(window, 'fetch');
 const username = 'Hasan';
 const email = 'hasan@hasan.com';
 const password = 'fjdak432fdnsn';
+const fullname = 'hasancan';
 
 it('should return photos', async () => {
   (window.fetch as jest.Mock).mockResolvedValue({
@@ -11,7 +12,7 @@ it('should return photos', async () => {
     json: () => ({ email: 'hasan@hasan.com', userId: '4327ffsd-fdsf7fds-fs7df7-sdkjf4' }),
   });
 
-  const returnedData = await signup(username, email, password);
+  const returnedData = await signup(username, fullname, email, password);
 
   expect(await returnedData.json()).toHaveProperty('userId');
 });
