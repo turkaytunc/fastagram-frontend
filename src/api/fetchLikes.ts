@@ -8,5 +8,5 @@ export const fetchLikes = async (photoId: string) =>
       'Content-Type': 'application/json;charset=UTF-8',
     },
     credentials: 'include',
-    body: JSON.stringify({ photoId, auth: window.localStorage.getItem('auth') }),
+    body: JSON.stringify({ photo_id: photoId, auth: window.localStorage.getItem('auth') }),
   });
