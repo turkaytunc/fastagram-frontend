@@ -6,3 +6,5 @@ export { fetchProfilePhotosById } from './fetchProfilePhotosById';
 export { fetchProfileById } from './fetchProfileById';
 export { addPhotoByUserId } from './addPhotoByUserId';
 export { fetchFeedItems } from './fetchFeedItems';
+export { fetchLikes } from './fetchLikes';
+export { addLike } from './addLike';
