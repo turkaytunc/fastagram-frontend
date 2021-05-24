@@ -54,7 +54,7 @@ const FeedItem = ({
 
       <Heart userId={userId} photoId={photoId} size="30" />
       <div style={{ textAlign: 'start', marginTop: '0.2rem', padding: '0.5rem' }}>
-        {likes} likes
+        {likes} {likes > 1 ? 'likes' : 'like'}
       </div>
       <Comment photoId={photoId} />
     </div>
