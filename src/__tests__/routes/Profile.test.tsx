@@ -4,8 +4,6 @@ import { createBrowserHistory } from 'history';
 import Profile from 'src/routes/profile/Profile';
 import { UserContextProvider } from 'src/context/UserContext';
 
-jest.spyOn(window, 'fetch');
-
 describe('<Profile />', () => {
   it('should without crashing', async () => {
     const history = createBrowserHistory();

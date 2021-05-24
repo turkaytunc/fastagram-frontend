@@ -50,6 +50,8 @@ describe('<PhotosContainer />', () => {
         <PhotosContainer userId={userId} />
       </Router>
     );
+
+    expect(await screen.findByTestId('photos-container')).toBeInTheDocument();
   });
 
   it('should fail to fetch photos', async () => {
