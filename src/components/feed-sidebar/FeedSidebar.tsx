@@ -5,7 +5,7 @@ import { useContext } from 'react';
 
 const FeedSidebar = () => {
   const user = useContext(UserContext);
-  const [profile] = useProfile(user?.user?.userId as string);
+  const [profile, err] = useProfile(user?.user?.userId as string);
 
   return (
     <div className="feed-sidebar">
@@ -30,6 +30,7 @@ const FeedSidebar = () => {
         <li>Locations</li>
       </ul>
       <span className="text-gray-400 text-sm text-left mt-2">©2021 FASTAGRAM FROM TÜRKAY TUNÇ</span>
+      {err}
     </div>
   );
 };

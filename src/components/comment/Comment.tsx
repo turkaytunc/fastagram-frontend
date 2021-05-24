@@ -18,6 +18,7 @@ const Comment = ({ photoId }: { photoId: string }) => {
           rows={1}
           maxLength={70}
           id={`comment-area-${photoId}`}
+          data-testid={`comment-area-${photoId}`}
           className="comment-area"
         />
       </label>

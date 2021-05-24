@@ -11,12 +11,13 @@ const usePhotos = (userId: string) => {
   const history = useHistory();
 
   useEffect(() => {
+    let isMounted = true;
     const getPhotos = async () => {
       try {
         const response = await fetchProfilePhotosById(userId);
         const data = await response.json();
 
-        if (response.status === 200) {
+        if (response.status === 200 && isMounted) {
           setPhotos(data.photos);
           return;
         }
@@ -27,6 +28,9 @@ const usePhotos = (userId: string) => {
       }
     };
     getPhotos();
+    return () => {
+      isMounted = false;
+    };
   }, [userId]);
   return [photos, fetchError] as const;
 };
