@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { useContext, useEffect, useState } from 'react';
 import { fetchLikes } from 'src/api';
 import { Comment, Heart, MiniProfile } from 'src/components';
