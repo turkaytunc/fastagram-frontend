@@ -8,5 +8,9 @@ export const addLike = async (photoId: string, userId: string) =>
       'Content-Type': 'application/json;charset=UTF-8',
     },
     credentials: 'include',
-    body: JSON.stringify({ photoId, userId, auth: window.localStorage.getItem('auth') }),
+    body: JSON.stringify({
+      photo_id: photoId,
+      user_id: userId,
+      auth: window.localStorage.getItem('auth'),
+    }),
   });

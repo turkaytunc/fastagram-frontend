@@ -19,7 +19,8 @@ const FeedItem = ({
       <div className="feed-item-image">
         {imageData && <img width="400" src={imageData} alt="anime girl" />}
       </div>
-      <Heart size="30" />
+
+      <Heart userId={userId} photoId={photoId} size="30" />
       <div style={{ textAlign: 'start', marginTop: '0.2rem', padding: '0.5rem' }}>{300} likes</div>
       <Comment photoId={photoId} />
     </div>
