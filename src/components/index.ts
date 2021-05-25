@@ -12,3 +12,5 @@ export { default as Search } from './search/Search';
 export { default as Heart } from './heart/Heart';
 export { default as Comment } from './comment/Comment';
 export { default as MiniProfile } from './mini-profile/MiniProfile';
+export { default as CommentsDisplay } from './comments-display/CommentsDisplay';
+export { default as CommentItem } from './comment-item/CommentItem';

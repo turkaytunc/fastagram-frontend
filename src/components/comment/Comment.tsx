@@ -1,13 +1,30 @@
+/* eslint-disable no-console */
 import { FormEvent, useState } from 'react';
+import { addComment } from 'src/api';
+import { commentValidator } from 'src/helpers/joiValidators';
 import './comment.scss';
 
-const Comment = ({ photoId }: { photoId: string }) => {
+const Comment = ({ photoId, photoOwner }: { photoId: string; photoOwner: string }) => {
   const [comment, setComment] = useState('');
-  const handleSubmit = (event: FormEvent) => {
-    event.preventDefault();
-    if (comment.length < 1) return;
-    // eslint-disable-next-line no-console
-    console.log(comment);
+  const [err, setErr] = useState('');
+  const handleSubmit = async (event: FormEvent) => {
+    try {
+      event.preventDefault();
+
+      await commentValidator(comment);
+
+      const response = await addComment(photoId, photoOwner, comment);
+      const data = await response.json();
+
+      if (data.message) {
+        setErr(data.message);
+        return;
+      }
+
+      console.log(data);
+    } catch (err) {
+      setErr(err.message);
+    }
   };
   return (
     <form className="comment-container">
@@ -17,19 +34,22 @@ const Comment = ({ photoId }: { photoId: string }) => {
           value={comment}
           rows={1}
           maxLength={70}
+          onFocus={() => setErr('')}
           id={`comment-area-${photoId}`}
           data-testid={`comment-area-${photoId}`}
           className="comment-area"
         />
       </label>
       <button
-        style={{ color: `${comment.length > 1 ? '#0095f6' : 'rgba(0, 149, 246, 0.3)'}` }}
+        style={{ color: `${comment.length > 5 ? '#0095f6' : 'rgba(0, 149, 246, 0.3)'}` }}
         onClick={(event) => handleSubmit(event)}
         type="submit"
         className="comment-button"
+        disabled={comment.length < 5}
       >
         Post
       </button>
+      {err && <div style={{ fontSize: '0.7rem', alignSelf: 'center', color: 'red' }}>{err}</div>}
     </form>
   );
 };

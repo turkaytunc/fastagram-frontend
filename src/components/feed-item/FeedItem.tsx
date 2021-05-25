@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { useContext, useEffect, useState } from 'react';
 import { fetchLikes } from 'src/api';
-import { Comment, Heart, MiniProfile } from 'src/components';
+import { Comment, CommentsDisplay, Heart, MiniProfile } from 'src/components';
 import { LikeContext } from 'src/context/LikeContext';
 import './feed-item.scss';
 
@@ -56,7 +56,8 @@ const FeedItem = ({
       <div style={{ textAlign: 'start', marginTop: '0.2rem', padding: '0.5rem' }}>
         {likes} {likes > 1 ? 'likes' : 'like'}
       </div>
-      <Comment photoId={photoId} />
+      <CommentsDisplay photoId={photoId} />
+      <Comment photoId={photoId} photoOwner={userId} />
     </div>
   );
 };

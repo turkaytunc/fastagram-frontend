@@ -40,7 +40,7 @@ const FeedSidebar = () => {
           </span>
         </div>
       ) : (
-        <div>{err}</div>
+        <div className="feed-sidebar">{err}</div>
       )}
     </>
   );
