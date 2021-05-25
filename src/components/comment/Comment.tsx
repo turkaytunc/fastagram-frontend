@@ -20,8 +20,7 @@ const Comment = ({ photoId, photoOwner }: { photoId: string; photoOwner: string 
         setErr(data.message);
         return;
       }
-
-      console.log(data);
+      window.location.href = '/';
     } catch (err) {
       setErr(err.message);
     }
