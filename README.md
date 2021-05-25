@@ -3,8 +3,12 @@
 
 # :art: Fastagram Frontend
 
+Backend is running on heroku. Using cold servers. It might take 10-15 seconds to spin server up. Be patient please ❤️
+
 [Live Beta](https://turkaytunc.github.io/fastagram-frontend/)
 
 ![Login Screen](https://github.com/turkaytunc/fastagram-frontend/blob/main/github-static/arc-login.png)
 
 ![Signup Screen](https://github.com/turkaytunc/fastagram-frontend/blob/main/github-static/arc-signup.png)
+
+[Backend Repo](https://github.com/turkaytunc/fastagram-backend)
