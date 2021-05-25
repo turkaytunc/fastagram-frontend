@@ -1,13 +1,19 @@
+/* eslint-disable no-console */
 import { FormEvent, useState } from 'react';
+import { commentValidator } from 'src/helpers/joiValidators';
 import './comment.scss';
 
 const Comment = ({ photoId }: { photoId: string }) => {
   const [comment, setComment] = useState('');
-  const handleSubmit = (event: FormEvent) => {
-    event.preventDefault();
-    if (comment.length < 1) return;
-    // eslint-disable-next-line no-console
-    console.log(comment);
+  const handleSubmit = async (event: FormEvent) => {
+    try {
+      event.preventDefault();
+
+      await commentValidator(comment);
+      console.log(comment);
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <form className="comment-container">
@@ -23,10 +29,11 @@ const Comment = ({ photoId }: { photoId: string }) => {
         />
       </label>
       <button
-        style={{ color: `${comment.length > 1 ? '#0095f6' : 'rgba(0, 149, 246, 0.3)'}` }}
+        style={{ color: `${comment.length > 5 ? '#0095f6' : 'rgba(0, 149, 246, 0.3)'}` }}
         onClick={(event) => handleSubmit(event)}
         type="submit"
         className="comment-button"
+        disabled={comment.length < 5}
       >
         Post
       </button>

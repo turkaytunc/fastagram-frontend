@@ -17,7 +17,13 @@ const loginSchema = Joi.object({
     .message('password can only contain alphanumeric characters and minimum of 6 character '),
 });
 
+const commentSchema = Joi.object({
+  comment: Joi.string().max(70).min(5),
+});
+
 export const signupValidator = (username: string, password: string, email: string) =>
   signupSchema.validateAsync({ username, password, email });
 export const loginValidator = (email: string, password: string) =>
   loginSchema.validateAsync({ email, password });
+
+export const commentValidator = (comment: string) => commentSchema.validateAsync({ comment });
