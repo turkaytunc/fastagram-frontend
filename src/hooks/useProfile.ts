@@ -14,11 +14,13 @@ const useProfile = (userId: string) => {
         const response = await fetchProfileById(userId);
         const data = await response.json();
 
-        if (response.status === 200 && isMounted) {
-          setProfile(data.profile);
+        if (data.message) {
+          setErr(data.message);
           return;
         }
-        throw new Error('Cannot fetch data');
+        if (isMounted) {
+          setProfile(data.profile);
+        }
       } catch (error) {
         setErr(error.message);
       }

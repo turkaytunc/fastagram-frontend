@@ -1,6 +1,6 @@
 import { BASE_URL } from 'src/constants';
 
-export const fetchComments = async (photoId: string, userId: string) =>
+export const fetchComments = async (photoId: string) =>
   window.fetch(`${BASE_URL}/dashboard/comments`, {
     method: 'POST',
     headers: {
@@ -10,7 +10,6 @@ export const fetchComments = async (photoId: string, userId: string) =>
     credentials: 'include',
     body: JSON.stringify({
       photo_id: photoId,
-      user_id: userId,
       auth: window.localStorage.getItem('auth'),
     }),
   });
