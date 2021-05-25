@@ -1,18 +1,29 @@
 /* eslint-disable no-console */
 import { FormEvent, useState } from 'react';
+import { addComment } from 'src/api';
 import { commentValidator } from 'src/helpers/joiValidators';
 import './comment.scss';
 
-const Comment = ({ photoId }: { photoId: string }) => {
+const Comment = ({ photoId, photoOwner }: { photoId: string; photoOwner: string }) => {
   const [comment, setComment] = useState('');
+  const [err, setErr] = useState('');
   const handleSubmit = async (event: FormEvent) => {
     try {
       event.preventDefault();
 
       await commentValidator(comment);
-      console.log(comment);
+
+      const response = await addComment(photoId, photoOwner, comment);
+      const data = await response.json();
+
+      if (data.message) {
+        setErr(data.message);
+        return;
+      }
+
+      console.log(data);
     } catch (err) {
-      console.log(err);
+      setErr(err.message);
     }
   };
   return (
@@ -23,6 +34,7 @@ const Comment = ({ photoId }: { photoId: string }) => {
           value={comment}
           rows={1}
           maxLength={70}
+          onFocus={() => setErr('')}
           id={`comment-area-${photoId}`}
           data-testid={`comment-area-${photoId}`}
           className="comment-area"
@@ -37,6 +49,7 @@ const Comment = ({ photoId }: { photoId: string }) => {
       >
         Post
       </button>
+      {err && <div style={{ fontSize: '0.7rem', alignSelf: 'center', color: 'red' }}>{err}</div>}
     </form>
   );
 };

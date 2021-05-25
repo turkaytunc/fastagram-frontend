@@ -56,7 +56,7 @@ const FeedItem = ({
       <div style={{ textAlign: 'start', marginTop: '0.2rem', padding: '0.5rem' }}>
         {likes} {likes > 1 ? 'likes' : 'like'}
       </div>
-      <Comment photoId={photoId} />
+      <Comment photoId={photoId} photoOwner={userId} />
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import { BASE_URL } from 'src/constants';
 
 export const fetchComments = async (photoId: string, userId: string) =>
-  window.fetch(`${BASE_URL}/comments`, {
+  window.fetch(`${BASE_URL}/dashboard/comments`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
