@@ -34,7 +34,7 @@ const CommentsDisplay = ({ photoId }: { photoId: string }) => {
   }, []);
 
   return (
-    <section>
+    <section style={{ borderTop: `${err ? '0' : '1'}px solid #ccc`, width: '100%' }}>
       {err
         ? null
         : comments?.map((el) => <CommentItem key={el?.id || Math.random()} comment={el} />)}

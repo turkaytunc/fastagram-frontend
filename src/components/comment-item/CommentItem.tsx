@@ -6,8 +6,10 @@ const CommentItem = ({
 }) => {
   return (
     <section>
-      <section>{comment.created_at}</section>
-      <section>{comment.content}</section>
+      <section style={{ fontSize: '0.7rem', textAlign: 'start', padding: '0.2rem 1rem' }}>
+        {new Date(comment.created_at).toLocaleDateString()}
+      </section>
+      <section style={{ textAlign: 'start', paddingLeft: '2rem' }}>{comment.content}</section>
     </section>
   );
 };
