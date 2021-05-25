@@ -9,3 +9,5 @@ export { fetchFeedItems } from './fetchFeedItems';
 export { fetchLikes } from './fetchLikes';
 export { addLike } from './addLike';
 export { fetchLikeStatus } from './fetchLikeStatus';
+export { fetchComments } from './fetchComments';
+export { addComment } from './addComment';

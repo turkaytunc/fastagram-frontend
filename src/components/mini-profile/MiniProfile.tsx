@@ -7,9 +7,11 @@ const MiniProfile = ({ userId }: { userId: string }) => {
     <>
       {profileFetchError === '' ? (
         <div className="mini-profile">
-          <section>{profile?.username}</section>
-          <section>{profile?.fullname}</section>
-          <section>{profile?.email}</section>
+          <section className="mini-username">{profile?.username}</section>
+          <section>
+            <section className="mini-fullname">{profile?.fullname}</section>
+            <section className="mini-email">{profile?.email}</section>
+          </section>
         </div>
       ) : (
         <div>{profileFetchError}</div>
