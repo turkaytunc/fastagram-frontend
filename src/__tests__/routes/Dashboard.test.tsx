@@ -21,14 +21,14 @@ describe('<Dashboard />', () => {
       </Router>
     );
 
-    expect(await screen.findByText(/like/)).toBeTruthy();
+    expect(await screen.findByText(/FASTAGRAM/)).toBeTruthy();
   });
 
-  it('should render error', async () => {
+  it('should render loading... message', async () => {
     const history = createBrowserHistory();
     (window.fetch as jest.Mock).mockResolvedValue({
       status: 400,
-      json: () => ({ feedItems: [{ user_id: '342', id: '4', data: 'jfd243jkj' }] }),
+      json: () => ({ feedItems: [] }),
     });
     render(
       <Router history={history}>
@@ -38,6 +38,6 @@ describe('<Dashboard />', () => {
       </Router>
     );
 
-    expect(await screen.findByText(/FASTAGRAM/)).toBeTruthy();
+    expect(await screen.findByText(/Loading.../)).toBeTruthy();
   });
 });

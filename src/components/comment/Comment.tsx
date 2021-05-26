@@ -2,6 +2,7 @@
 import { FormEvent, useState } from 'react';
 import { addComment } from 'src/api';
 import { commentValidator } from 'src/helpers/joiValidators';
+import { DisplayError } from 'src/components';
 import './comment.scss';
 
 const Comment = ({ photoId, photoOwner }: { photoId: string; photoOwner: string }) => {
@@ -48,7 +49,7 @@ const Comment = ({ photoId, photoOwner }: { photoId: string; photoOwner: string 
       >
         Post
       </button>
-      {err && <div style={{ fontSize: '0.7rem', alignSelf: 'center', color: 'red' }}>{err}</div>}
+      {err && <DisplayError color="red" message={err} />}
     </form>
   );
 };

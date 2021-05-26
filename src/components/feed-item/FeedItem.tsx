@@ -1,8 +1,6 @@
 /* eslint-disable no-console */
-import { useContext, useEffect, useState } from 'react';
-import { fetchLikes } from 'src/api';
-import { Comment, CommentsDisplay, Heart, MiniProfile } from 'src/components';
-import { LikeContext } from 'src/context/LikeContext';
+import { Comment, CommentsDisplay, DisplayError, Heart, MiniProfile } from 'src/components';
+import { useFeedItem } from 'src/hooks/useFeedItem';
 import './feed-item.scss';
 
 const FeedItem = ({
@@ -15,33 +13,7 @@ const FeedItem = ({
   photoId: string;
 }) => {
   // eslint-disable-next-line no-unused-vars
-  const [likes, setLikes] = useState(0);
-  const likeCtx = useContext(LikeContext);
-
-  useEffect(() => {
-    let isMounted = true;
-    const likeCount = async () => {
-      try {
-        const response = await fetchLikes(photoId);
-        const data = await response.json();
-
-        if (data.message) {
-          console.log(data.message);
-          return;
-        }
-
-        if (isMounted) {
-          setLikes(data.likes?.count);
-        }
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    likeCount();
-    return () => {
-      isMounted = false;
-    };
-  }, [likeCtx?.isLiked]);
+  const [likes, err] = useFeedItem(photoId);
 
   return (
     <div className="feed-item-container">
@@ -58,6 +30,7 @@ const FeedItem = ({
       </div>
       <CommentsDisplay photoId={photoId} />
       <Comment photoId={photoId} photoOwner={userId} />
+      {err && <DisplayError message={err} color="red" />}
     </div>
   );
 };

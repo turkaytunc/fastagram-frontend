@@ -8,13 +8,11 @@ const PhotosContainer = ({ userId }: { userId: string }) => {
     <>
       {err === '' ? (
         <div className="photos-container" data-testid="photos-container">
-          {photos?.map((item) => {
-            return (
-              <div key={item.id || Math.random()} className="photo">
-                <img src={item.data} alt="profile item" />
-              </div>
-            );
-          })}
+          {photos?.map((item) => (
+            <div key={item.id || Math.random()} className="photo">
+              {item?.data && <img src={item.data} alt="profile item" />}
+            </div>
+          ))}
         </div>
       ) : (
         <Redirect to="/" />

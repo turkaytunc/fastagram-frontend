@@ -14,3 +14,4 @@ export { default as Comment } from './comment/Comment';
 export { default as MiniProfile } from './mini-profile/MiniProfile';
 export { default as CommentsDisplay } from './comments-display/CommentsDisplay';
 export { default as CommentItem } from './comment-item/CommentItem';
+export { default as Loading } from './loading/Loading';

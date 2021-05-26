@@ -4,6 +4,7 @@ import './app.scss';
 import Profile from 'src/routes/profile/Profile';
 import { UserContextProvider } from './context/UserContext';
 import { LikeContextProvider } from './context/LikeContext';
+import { Loading } from './components';
 
 const Login = lazy(() => import('src/routes/login/Login'));
 const Signup = lazy(() => import('src/routes/signup/Signup'));
@@ -13,7 +14,7 @@ function App() {
   return (
     <UserContextProvider>
       <LikeContextProvider>
-        <Suspense fallback={<div className="text-center">Loading...</div>}>
+        <Suspense fallback={<Loading />}>
           <div className="app-container ">
             <Switch>
               <Route exact path="/" component={Dashboard} />
