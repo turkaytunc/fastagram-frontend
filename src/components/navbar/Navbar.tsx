@@ -45,14 +45,14 @@ const Navbar = () => {
           </button>
         ) : null}
         <UploadModal isOpen={isOpen} setIsOpen={setIsOpen} />
-        <li className="menu-item">
-          <FaRegPaperPlane size="22" fill="#252525" />
+        <li className="menu-item menu-item-gray">
+          <FaRegPaperPlane size="22" fill="#666" />
         </li>
-        <li className="menu-item">
-          <FaRegCompass size="22" fill="#252525" />
+        <li className="menu-item menu-item-gray">
+          <FaRegCompass size="22" fill="#666" />
         </li>
-        <li className="menu-item">
-          <FaRegHeart size="22" fill="#252525" />
+        <li className="menu-item menu-item-gray">
+          <FaRegHeart size="22" fill="#666" />
         </li>
         <button
           data-testid="navbar-cog-button"
