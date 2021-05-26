@@ -38,7 +38,7 @@ describe('<App/>', () => {
       </Router>
     );
 
-    expect(await screen.findByText(/FASTAGRAM/)).toBeInTheDocument();
+    expect(await screen.findByText(/Loading.../)).toBeInTheDocument();
   });
   it('should render component and lazy load login component without crashing', async () => {
     const history = createBrowserHistory();

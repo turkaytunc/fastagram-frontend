@@ -3,8 +3,19 @@ import { PhotosContainer } from 'src/components';
 import { Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
+jest.spyOn(window, 'fetch');
 describe('<PhotosContainer />', () => {
   it('should render without crashing', async () => {
+    (window.fetch as jest.Mock).mockResolvedValue({
+      status: 200,
+      json: () => ({
+        photos: [
+          { id: 1, data: 'jkfdsjfds' },
+          { id: 22, data: 'fdskjf' },
+        ],
+      }),
+    });
+
     const history = createBrowserHistory();
     const userId = '487j-fdslkj23-fds3j34j';
     history.push(`/profile/${userId}`);
@@ -13,10 +24,20 @@ describe('<PhotosContainer />', () => {
         <PhotosContainer userId={userId} />
       </Router>
     );
-    expect(await screen.findByRole('img')).toBeInTheDocument();
+    expect((await screen.findAllByRole('img'))[0]).toBeInTheDocument();
   });
 
   it('should render without empty id', async () => {
+    (window.fetch as jest.Mock).mockResolvedValue({
+      status: 200,
+      json: () => ({
+        photos: [
+          { id: 1, data: 'jkfdsjfds' },
+          { id: 22, data: 'fdskjf' },
+        ],
+      }),
+    });
+
     const history = createBrowserHistory();
     const userId = '487j-fdslkj23-fds3j34j';
     history.push(`/profile/${userId}`);
@@ -26,11 +47,10 @@ describe('<PhotosContainer />', () => {
         <PhotosContainer userId={userId} />
       </Router>
     );
-    expect(await screen.findByRole('img')).toBeInTheDocument();
+    expect((await screen.findAllByRole('img'))[1]).toBeInTheDocument();
   });
 
   it('should fetch photos', async () => {
-    jest.spyOn(window, 'fetch');
     (window.fetch as jest.Mock).mockResolvedValue({
       status: 200,
       json: () => ({
@@ -55,7 +75,6 @@ describe('<PhotosContainer />', () => {
   });
 
   it('should fail to fetch photos', async () => {
-    jest.spyOn(window, 'fetch');
     (window.fetch as jest.Mock).mockResolvedValue({
       status: 400,
       json: () => ({
