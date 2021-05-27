@@ -1,14 +1,12 @@
+import { Comment } from 'src/interfaces';
+
 /* eslint-disable camelcase */
-const CommentItem = ({
-  comment,
-}: {
-  comment: { id: string; photo_id: string; user_id: string; content: string; created_at: string };
-}) => {
+const CommentItem = ({ comment }: { comment: Comment }) => {
   return (
     <>
       {comment.created_at && (
         <section style={{ display: 'flex', paddingLeft: '0.5rem', marginTop: '1rem' }}>
-          {comment.content}
+          <span style={{ fontWeight: 'bold' }}>{comment.username}</span>
           <span
             style={{
               fontSize: '0.7rem',
@@ -19,6 +17,7 @@ const CommentItem = ({
           >
             on {new Date(comment?.created_at).toLocaleDateString()}
           </span>
+          {comment.content}
         </section>
       )}
     </>
