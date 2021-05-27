@@ -1,4 +1,4 @@
-import { addPhotoByUserId } from '../../api';
+import { addPhotoByUserId } from 'src/api';
 
 jest.spyOn(window, 'fetch');
 const data = 'hello this fdkajfkda;fjdjaf';
