@@ -27,7 +27,7 @@ const FeedItem = ({
 
       <div className="heart-like-tri">
         <Heart userId={userId} photoId={photoId} size="30" />
-        <div style={{ textAlign: 'start', marginTop: '0.2rem', padding: '0.5rem', flex: 5 }}>
+        <div style={{ textAlign: 'start', marginTop: '0.2rem', padding: '0.5rem', flex: 10 }}>
           {likes} {likes > 1 ? 'likes' : 'like'}
         </div>
         <FaCaretDown fill="#aaa" size="30" />
