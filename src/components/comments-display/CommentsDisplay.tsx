@@ -1,13 +1,12 @@
 /* eslint-disable camelcase */
 import { useEffect, useState } from 'react';
 import { fetchComments } from 'src/api';
+import { Comment } from 'src/interfaces';
 import { CommentItem } from '..';
 
 const CommentsDisplay = ({ photoId }: { photoId: string }) => {
   const [err, setErr] = useState('');
-  const [comments, setComments] = useState([{}] as [
-    { id: string; photo_id: string; user_id: string; content: string; created_at: string }
-  ]);
+  const [comments, setComments] = useState([{}] as [Comment]);
 
   useEffect(() => {
     let isMounted = true;
