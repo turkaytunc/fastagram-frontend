@@ -7,7 +7,7 @@ const CommentItem = ({
   return (
     <>
       {comment.created_at && (
-        <section style={{ display: 'flex', paddingLeft: '0.5rem' }}>
+        <section style={{ display: 'flex', paddingLeft: '0.5rem', marginTop: '1rem' }}>
           {comment.content}
           <span
             style={{
