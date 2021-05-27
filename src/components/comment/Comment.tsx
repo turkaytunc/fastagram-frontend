@@ -21,7 +21,7 @@ const Comment = ({ photoId, photoOwner }: { photoId: string; photoOwner: string 
         setErr(data.message);
         return;
       }
-      window.location.href = 'fastagram-frontend/';
+      window.location.pathname = 'fastagram-frontend/';
     } catch (err) {
       setErr(err.message);
     }
