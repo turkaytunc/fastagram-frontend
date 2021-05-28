@@ -36,22 +36,22 @@ const Search = () => {
         type="search"
         onChange={(event) => handleSearch(event)}
       />
-      <section className="search-result">
-        <ul>
-          {users?.length > 0 &&
-            users?.map((user) => (
-              <button
-                key={user.user_id || Math.random()}
-                type="button"
-                onClick={() => {
-                  handleUserClick(user.user_id);
-                }}
-              >
-                {user.username}
-              </button>
-            ))}
-        </ul>
-      </section>
+
+      {users?.length > 0 && (
+        <section className="search-result bg-gray-50">
+          {users?.map((user) => (
+            <button
+              key={user.user_id || Math.random()}
+              type="button"
+              onClick={() => {
+                handleUserClick(user.user_id);
+              }}
+            >
+              {user.username}
+            </button>
+          ))}
+        </section>
+      )}
     </div>
   );
 };
