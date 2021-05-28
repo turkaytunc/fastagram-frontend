@@ -33,12 +33,8 @@ const Search = () => {
   };
 
   return (
-    <div className="border flex items-center justify-center search-container">
-      <input
-        className="border-none focus:outline-none"
-        type="search"
-        onChange={(event) => handleSearch(event)}
-      />
+    <div className="border flex-row search-container">
+      <input className="search-input" type="search" onChange={(event) => handleSearch(event)} />
 
       {users.length > 0 && users[0].username !== '' && (
         <section className="search-result bg-gray-50">
