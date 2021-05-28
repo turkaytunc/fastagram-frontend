@@ -1,33 +1,57 @@
+/* eslint-disable camelcase */
 import { useState } from 'react';
 import { searchUser } from 'src/api';
 import './search.scss';
+import { useHistory } from 'react-router-dom';
 
 const Search = () => {
-  const [searchInput, setSearchInput] = useState('');
+  const [users, setUsers] = useState([{}] as [{ username: string; user_id: string }]);
+  const history = useHistory();
 
-  const handleSearch = async (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const handleSearch = async (event: React.ChangeEvent<HTMLInputElement>) => {
     try {
       event.preventDefault();
 
-      const response = await searchUser(searchInput);
+      const response = await searchUser(event.target.value);
       const data = await response.json();
 
-      console.log(data);
+      if (data.message) {
+        setUsers([{ username: '', user_id: '' }]);
+      }
+
+      setUsers(data.users);
     } catch (error) {
-      console.log(error);
+      setUsers([{ username: '', user_id: '' }]);
     }
   };
+
+  const handleUserClick = async (userId: string) => {
+    history.push(`/profile/${userId}`);
+  };
+
   return (
     <div className="border flex items-center justify-center search-container">
       <input
         className="border-none focus:outline-none"
         type="search"
-        value={searchInput}
-        onChange={(event) => setSearchInput(event.target.value)}
+        onChange={(event) => handleSearch(event)}
       />
-      <button onClick={(event) => handleSearch(event)} type="button">
-        Search
-      </button>
+      <section className="search-result">
+        <ul>
+          {users?.length > 0 &&
+            users?.map((user) => (
+              <button
+                key={user.user_id || Math.random()}
+                type="button"
+                onClick={() => {
+                  handleUserClick(user.user_id);
+                }}
+              >
+                {user.username}
+              </button>
+            ))}
+        </ul>
+      </section>
     </div>
   );
 };
