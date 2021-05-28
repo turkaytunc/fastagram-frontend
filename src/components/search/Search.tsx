@@ -5,7 +5,9 @@ import './search.scss';
 import { useHistory } from 'react-router-dom';
 
 const Search = () => {
-  const [users, setUsers] = useState([{}] as [{ username: string; user_id: string }]);
+  const [users, setUsers] = useState([{ username: '', user_id: '' }] as [
+    { username: string; user_id: string }
+  ]);
   const history = useHistory();
 
   const handleSearch = async (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -17,6 +19,7 @@ const Search = () => {
 
       if (data.message) {
         setUsers([{ username: '', user_id: '' }]);
+        return;
       }
 
       setUsers(data.users);
@@ -37,7 +40,7 @@ const Search = () => {
         onChange={(event) => handleSearch(event)}
       />
 
-      {users?.length > 0 && (
+      {users.length > 0 && users[0].username !== '' && (
         <section className="search-result bg-gray-50">
           {users?.map((user) => (
             <button
