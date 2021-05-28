@@ -11,3 +11,4 @@ export { addLike } from './addLike';
 export { fetchLikeStatus } from './fetchLikeStatus';
 export { fetchComments } from './fetchComments';
 export { addComment } from './addComment';
+export { searchUser } from './searchUser';
