@@ -3,12 +3,15 @@
 import { useEffect, useState } from 'react';
 import { FeedItem, FeedSidebar, Loading, Navbar } from 'src/components';
 import './dashboard.scss';
+import { useHistory } from 'react-router-dom';
 
 import useAuth from 'src/hooks/useAuth';
 import { fetchFeedItems } from 'src/api';
+import { timeout } from 'src/helpers/timeoutPromise';
 
 const Dashboard = () => {
   useAuth('/');
+  const history = useHistory();
 
   const [feedItems, setFeedItems] = useState([{ user_id: '', id: '', data: '' }] as [
     { user_id: string; id: string; data: string }
@@ -17,10 +20,15 @@ const Dashboard = () => {
   useEffect(() => {
     let isMounted = true;
     const fetchFeed = async () => {
-      const response = await fetchFeedItems();
-      const data = await response.json();
-      if (isMounted) {
-        setFeedItems(data.feedItems);
+      try {
+        const response = await timeout(fetchFeedItems(), 3000);
+        const data = await response.json();
+
+        if (isMounted) {
+          setFeedItems(data.feedItems);
+        }
+      } catch (error) {
+        history.push('/login');
       }
     };
     fetchFeed();
