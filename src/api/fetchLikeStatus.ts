@@ -1,7 +1,7 @@
 import { BASE_URL } from 'src/constants';
 
 export const fetchLikeStatus = async (photoId: string, userId: string) =>
-  window.fetch(`${BASE_URL}/dashboard/like/isliked`, {
+  window.fetch(`${BASE_URL}/like/isliked`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
