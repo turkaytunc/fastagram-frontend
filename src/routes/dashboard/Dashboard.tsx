@@ -21,7 +21,7 @@ const Dashboard = () => {
     let isMounted = true;
     const fetchFeed = async () => {
       try {
-        const response = await timeout(fetchFeedItems(), 3000);
+        const response = await timeout(fetchFeedItems(), 4000);
         const data = await response.json();
 
         if (isMounted) {
