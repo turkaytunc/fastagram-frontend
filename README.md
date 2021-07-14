@@ -3,6 +3,8 @@
 
 # :art: Fastagram Frontend
 
+Tech used: React, Typescript, Eslint, Jest, Tailwind, Sass, TravisCI.
+
 Backend is running on heroku. Using cold servers. It might take 10-15 seconds to spin server up. Be patient please ❤️
 
 [Live Beta](https://turkaytunc.github.io/fastagram-frontend/)
