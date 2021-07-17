@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { createBrowserHistory } from 'history';
 import { Router } from 'react-router-dom';
-import { CogMenu } from '../../components';
+import { CogMenu } from 'src/components';
 
 jest.spyOn(window, 'fetch');
 const history = createBrowserHistory();
