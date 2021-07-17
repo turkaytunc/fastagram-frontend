@@ -79,8 +79,8 @@ describe('<Navbar />', () => {
     );
 
     const modalButton = await screen.findByTestId('navbar-modal-button');
-    fireEvent.click(modalButton);
 
+    fireEvent.click(modalButton);
     fireEvent.change(await screen.findByTestId('file-input'), {
       target: { files: [new Blob(), new Blob()] },
     });
