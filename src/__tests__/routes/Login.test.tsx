@@ -4,10 +4,10 @@ import { createBrowserHistory } from 'history';
 import Login from 'src/routes/login/Login';
 
 jest.spyOn(window, 'fetch');
+const history = createBrowserHistory();
+history.push('/login');
 
 describe('Login Route ', () => {
-  const history = createBrowserHistory();
-
   it('should render without crash', async () => {
     render(
       <Router history={history}>
