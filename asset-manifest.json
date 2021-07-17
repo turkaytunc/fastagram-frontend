@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/fastagram-frontend/static/css/main.4382b3f4.chunk.css",
+    "main.js": "/fastagram-frontend/static/js/main.9632c2b1.chunk.js",
+    "main.js.map": "/fastagram-frontend/static/js/main.9632c2b1.chunk.js.map",
+    "runtime-main.js": "/fastagram-frontend/static/js/runtime-main.06a9ca15.js",
+    "runtime-main.js.map": "/fastagram-frontend/static/js/runtime-main.06a9ca15.js.map",
+    "static/js/2.e9891c86.chunk.js": "/fastagram-frontend/static/js/2.e9891c86.chunk.js",
+    "static/js/2.e9891c86.chunk.js.map": "/fastagram-frontend/static/js/2.e9891c86.chunk.js.map",
+    "static/css/3.0120400b.chunk.css": "/fastagram-frontend/static/css/3.0120400b.chunk.css",
+    "static/js/3.4551aa1d.chunk.js": "/fastagram-frontend/static/js/3.4551aa1d.chunk.js",
+    "static/js/3.4551aa1d.chunk.js.map": "/fastagram-frontend/static/js/3.4551aa1d.chunk.js.map",
+    "static/css/4.e0f4d8d4.chunk.css": "/fastagram-frontend/static/css/4.e0f4d8d4.chunk.css",
+    "static/js/4.7ad71fcd.chunk.js": "/fastagram-frontend/static/js/4.7ad71fcd.chunk.js",
+    "static/js/4.7ad71fcd.chunk.js.map": "/fastagram-frontend/static/js/4.7ad71fcd.chunk.js.map",
+    "static/css/5.205d41aa.chunk.css": "/fastagram-frontend/static/css/5.205d41aa.chunk.css",
+    "static/js/5.7975b73c.chunk.js": "/fastagram-frontend/static/js/5.7975b73c.chunk.js",
+    "static/js/5.7975b73c.chunk.js.map": "/fastagram-frontend/static/js/5.7975b73c.chunk.js.map",
+    "index.html": "/fastagram-frontend/index.html",
+    "static/css/3.0120400b.chunk.css.map": "/fastagram-frontend/static/css/3.0120400b.chunk.css.map",
+    "static/css/4.e0f4d8d4.chunk.css.map": "/fastagram-frontend/static/css/4.e0f4d8d4.chunk.css.map",
+    "static/css/5.205d41aa.chunk.css.map": "/fastagram-frontend/static/css/5.205d41aa.chunk.css.map",
+    "static/css/main.4382b3f4.chunk.css.map": "/fastagram-frontend/static/css/main.4382b3f4.chunk.css.map",
+    "static/js/2.e9891c86.chunk.js.LICENSE.txt": "/fastagram-frontend/static/js/2.e9891c86.chunk.js.LICENSE.txt",
+    "static/media/insta-login-phone-inner.cc488f03.jpg": "/fastagram-frontend/static/media/insta-login-phone-inner.cc488f03.jpg",
+    "static/media/insta-login-phone.3686ea84.png": "/fastagram-frontend/static/media/insta-login-phone.3686ea84.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.06a9ca15.js",
+    "static/js/2.e9891c86.chunk.js",
+    "static/css/main.4382b3f4.chunk.css",
+    "static/js/main.9632c2b1.chunk.js"
+  ]
+}
