@@ -1,13 +1,13 @@
 import { screen, render, fireEvent } from '@testing-library/react';
-// import {Router} from 'react-router-dom'
 import Heart from 'src/components/heart/Heart';
 import { LikeContextProvider } from 'src/context/LikeContext';
 
 jest.spyOn(window, 'fetch');
+const mockFetch = window.fetch as jest.Mock;
 
-describe('Heart', () => {
+describe('<Heart />', () => {
   it('should fetch data with success', async () => {
-    (window.fetch as jest.Mock).mockResolvedValue({ status: 200, json: () => ({ isLiked: true }) });
+    mockFetch.mockResolvedValue({ status: 200, json: () => ({ isLiked: true }) });
     render(
       <LikeContextProvider>
         <Heart photoId="fdskj" userId="3244-h423-4234" size="30" />
@@ -20,7 +20,7 @@ describe('Heart', () => {
   });
 
   it('should fetch like status and get error message', async () => {
-    (window.fetch as jest.Mock).mockResolvedValue({
+    mockFetch.mockResolvedValue({
       status: 200,
       json: () => ({ message: 'something went wrong' }),
     });
@@ -36,7 +36,7 @@ describe('Heart', () => {
   });
 
   it('should fail to fetch like status and throw error message', async () => {
-    (window.fetch as jest.Mock).mockRejectedValue(new Error('cannot fetch data'));
+    mockFetch.mockRejectedValue(new Error('cannot fetch data'));
     render(
       <LikeContextProvider>
         <Heart photoId="fdskj" userId="3244-h423-4234" size="30" />

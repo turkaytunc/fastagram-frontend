@@ -4,10 +4,10 @@ import { createBrowserHistory } from 'history';
 import Login from 'src/routes/login/Login';
 
 jest.spyOn(window, 'fetch');
+const history = createBrowserHistory();
+history.push('/login');
 
 describe('Login Route ', () => {
-  const history = createBrowserHistory();
-
   it('should render without crash', async () => {
     render(
       <Router history={history}>
@@ -15,7 +15,9 @@ describe('Login Route ', () => {
       </Router>
     );
 
-    expect(await screen.findByText('Log in')).toBeInTheDocument();
+    const loginButton = await screen.findByRole('button', { name: 'Log in' });
+
+    expect(loginButton).toBeInTheDocument();
   });
 
   it('should fire submit event and get error because empty email input', async () => {
@@ -25,7 +27,8 @@ describe('Login Route ', () => {
       </Router>
     );
 
-    fireEvent.submit((await screen.findAllByRole('button'))[1]);
+    const loginButton = await screen.findByRole('button', { name: 'Log in' });
+    fireEvent.submit(loginButton);
 
     expect(await screen.findByText('"email" is not allowed to be empty')).toBeInTheDocument();
   });
@@ -37,7 +40,8 @@ describe('Login Route ', () => {
       </Router>
     );
 
-    fireEvent.change(await screen.findByTestId('login-password'), {
+    const passwordInput = await screen.findByTestId('login-password');
+    fireEvent.change(passwordInput, {
       target: { value: '20kfdsjsfd' },
     });
 
@@ -54,14 +58,15 @@ describe('Login Route ', () => {
       </Router>
     );
 
-    fireEvent.change(await screen.findByTestId('login-password'), {
+    const passwordInput = await screen.findByTestId('login-password');
+    fireEvent.change(passwordInput, {
       target: { value: '2422sjsfd' },
     });
     fireEvent.change(await screen.findByTestId('login-email'), {
       target: { value: 'fakemail@mail.com' },
     });
 
-    fireEvent.click(await screen.findByText('Log in'));
+    fireEvent.click(await screen.findByRole('button', { name: 'Log in' }));
     expect(history.location.pathname).toBe('/');
   });
 
@@ -75,15 +80,15 @@ describe('Login Route ', () => {
         <Login />
       </Router>
     );
-
-    fireEvent.change(await screen.findByTestId('login-password'), {
+    const passwordInput = await screen.findByTestId('login-password');
+    fireEvent.change(passwordInput, {
       target: { value: '2422sjsfd' },
     });
     fireEvent.change(await screen.findByTestId('login-email'), {
       target: { value: 'fakemail@mail.com' },
     });
 
-    fireEvent.click(await screen.findByText('Log in'));
+    fireEvent.click(await screen.findByRole('button', { name: 'Log in' }));
     expect(await screen.findByText('some error occurred!'));
   });
 

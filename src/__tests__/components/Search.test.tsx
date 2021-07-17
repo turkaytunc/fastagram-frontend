@@ -4,11 +4,13 @@ import { Router } from 'react-router-dom';
 import { Search } from 'src/components';
 
 const history = createBrowserHistory();
+history.push('/');
+
 jest.spyOn(window, 'fetch');
 const mockFetch = window.fetch as jest.Mock;
+
 describe('<Search />', () => {
   it('should fire change event', async () => {
-    history.push('/');
     mockFetch.mockResolvedValue({
       status: 200,
       json: () => ({
@@ -29,7 +31,6 @@ describe('<Search />', () => {
   });
 
   it('should fire change event and get error', async () => {
-    history.push('/');
     mockFetch.mockRejectedValue(new Error('Something went wrong'));
     render(
       <Router history={history}>
@@ -45,7 +46,6 @@ describe('<Search />', () => {
   });
 
   it('should fire change event and fetch error message from server', async () => {
-    history.push('/');
     mockFetch.mockResolvedValue({
       status: 400,
       json: () => ({ message: 'Some server problem message' }),
@@ -64,7 +64,6 @@ describe('<Search />', () => {
   });
 
   it('should fire change event', async () => {
-    history.push('/');
     mockFetch.mockResolvedValue({
       status: 200,
       json: () => ({
