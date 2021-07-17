@@ -105,7 +105,8 @@ describe('Signup Route ', () => {
       target: { value: 'hasan@email.com' },
     });
 
-    fireEvent.submit((await screen.findAllByRole('button'))[1]);
+    const signupButton = await screen.findByRole('button', { name: 'Sign up' });
+    fireEvent.submit(signupButton);
 
     expect(await screen.findByText('some kind of error')).toBeTruthy();
   });
