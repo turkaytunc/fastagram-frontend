@@ -15,9 +15,7 @@ describe('<Comment />', () => {
       </Router>
     );
 
-    const commentArea = await screen.findByTestId('comment-area-54');
-    expect(commentArea).toBeInTheDocument();
-
+    const commentArea = await screen.findByRole('textbox');
     fireEvent.change(commentArea, {
       target: { value: 'this is a test string' },
     });
@@ -33,7 +31,7 @@ describe('<Comment />', () => {
       </Router>
     );
 
-    const commentArea = await screen.findByTestId('comment-area-54');
+    const commentArea = await screen.findByRole('textbox');
     const submitButton = await screen.findByRole('button');
 
     fireEvent.change(commentArea, {
@@ -55,7 +53,7 @@ describe('<Comment />', () => {
       </Router>
     );
 
-    const commentArea = await screen.findByTestId('comment-area-54');
+    const commentArea = await screen.findByRole('textbox');
     const submitButton = await screen.findByRole('button');
 
     fireEvent.change(commentArea, {
@@ -74,7 +72,7 @@ describe('<Comment />', () => {
       </Router>
     );
 
-    const commentArea = await screen.findByTestId('comment-area-54');
+    const commentArea = await screen.findByRole('textbox');
     const submitButton = await screen.findByRole('button');
 
     fireEvent.change(commentArea, {
@@ -82,7 +80,8 @@ describe('<Comment />', () => {
     });
     fireEvent.click(submitButton);
 
-    expect(await screen.findByText('Oops something went wrong!')).toBeTruthy();
+    const errorMsg = await screen.findByText('Oops something went wrong!');
+    expect(errorMsg).toBeInTheDocument();
 
     fireEvent.focus(commentArea);
 
